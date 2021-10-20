@@ -6,5 +6,6 @@ target 'Liga' do
   
   pod 'GoogleMaps', '5.1.0'
   pod 'Google-Maps-iOS-Utils', '~> 4.0.0'
+  pod 'SnapKit', '~> 5.0.0'
   
 end
