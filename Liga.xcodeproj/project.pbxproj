@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DA9DBF0271E303200764BEA /* RPCEngineContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBEF271E303200764BEA /* RPCEngineContract.swift */; };
+		2DA9DBF2271E304900764BEA /* RPCEngineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBF1271E304900764BEA /* RPCEngineBase.swift */; };
+		2DA9DBF5271E3A6700764BEA /* SideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBF4271E3A6700764BEA /* SideController.swift */; };
+		2DAA59B3271EF75100ECC994 /* WorkZonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59B2271EF75100ECC994 /* WorkZonesViewController.swift */; };
+		2DAA59B9271EF9C500ECC994 /* WorkGeoZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59B8271EF9C500ECC994 /* WorkGeoZone.swift */; };
+		2DAA59BB271EF9D100ECC994 /* WorkGeoZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59BA271EF9D100ECC994 /* WorkGeoZoneCell.swift */; };
+		2DAA59BE271EFA4800ECC994 /* Appereance+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59BD271EFA4800ECC994 /* Appereance+UILabel.swift */; };
+		2DAA59C0271EFC9000ECC994 /* WorkZonesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59BF271EFC9000ECC994 /* WorkZonesDataSource.swift */; };
+		2DAA59C2271F00B300ECC994 /* WorkZonePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59C1271F00B300ECC994 /* WorkZonePresenter.swift */; };
+		2DAA59C5271F05C900ECC994 /* WorkZoneRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59C4271F05C900ECC994 /* WorkZoneRepository.swift */; };
+		2DAA59C8271F064300ECC994 /* WorkGeoZonesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59C7271F064300ECC994 /* WorkGeoZonesService.swift */; };
+		2DAA59CB271F068000ECC994 /* WorkGeoZonesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59CA271F068000ECC994 /* WorkGeoZonesDataStore.swift */; };
+		2DAA59CE271F06CE00ECC994 /* GeoZoneEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59CD271F06CE00ECC994 /* GeoZoneEntity.swift */; };
+		2DAA59D2271F072D00ECC994 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59D1271F072D00ECC994 /* ViewState.swift */; };
+		2DAA59D4271F10DF00ECC994 /* MapViewController+GeoZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */; };
+		2DAA59D7271F9DDB00ECC994 /* PointInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59D6271F9DDB00ECC994 /* PointInfoViewController.swift */; };
+		2DAA59D9271F9DE600ECC994 /* PointInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59D8271F9DE600ECC994 /* PointInfoPresenter.swift */; };
+		2DAA59DD271FA14C00ECC994 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59DC271FA14C00ECC994 /* Location.swift */; };
 		52D9C9F19A775DA377350CE0 /* Pods_Liga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9A01BF7154990CBF8F17DA /* Pods_Liga.framework */; };
 		BC32480C271B1BC200B6EC1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC707A30271AD54000233AD4 /* Main.storyboard */; };
 		BC32480D271B1BC400B6EC1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC707A33271AD54000233AD4 /* Assets.xcassets */; };
@@ -22,6 +40,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DA9DBEF271E303200764BEA /* RPCEngineContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCEngineContract.swift; sourceTree = "<group>"; };
+		2DA9DBF1271E304900764BEA /* RPCEngineBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCEngineBase.swift; sourceTree = "<group>"; };
+		2DA9DBF4271E3A6700764BEA /* SideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideController.swift; sourceTree = "<group>"; };
+		2DAA59B2271EF75100ECC994 /* WorkZonesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkZonesViewController.swift; sourceTree = "<group>"; };
+		2DAA59B8271EF9C500ECC994 /* WorkGeoZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkGeoZone.swift; sourceTree = "<group>"; };
+		2DAA59BA271EF9D100ECC994 /* WorkGeoZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkGeoZoneCell.swift; sourceTree = "<group>"; };
+		2DAA59BD271EFA4800ECC994 /* Appereance+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appereance+UILabel.swift"; sourceTree = "<group>"; };
+		2DAA59BF271EFC9000ECC994 /* WorkZonesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkZonesDataSource.swift; sourceTree = "<group>"; };
+		2DAA59C1271F00B300ECC994 /* WorkZonePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkZonePresenter.swift; sourceTree = "<group>"; };
+		2DAA59C4271F05C900ECC994 /* WorkZoneRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkZoneRepository.swift; sourceTree = "<group>"; };
+		2DAA59C7271F064300ECC994 /* WorkGeoZonesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkGeoZonesService.swift; sourceTree = "<group>"; };
+		2DAA59CA271F068000ECC994 /* WorkGeoZonesDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkGeoZonesDataStore.swift; sourceTree = "<group>"; };
+		2DAA59CD271F06CE00ECC994 /* GeoZoneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoZoneEntity.swift; sourceTree = "<group>"; };
+		2DAA59D1271F072D00ECC994 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+GeoZones.swift"; sourceTree = "<group>"; };
+		2DAA59D6271F9DDB00ECC994 /* PointInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoViewController.swift; sourceTree = "<group>"; };
+		2DAA59D8271F9DE600ECC994 /* PointInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoPresenter.swift; sourceTree = "<group>"; };
+		2DAA59DC271FA14C00ECC994 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		6BE03787328259AA0E889B3D /* Pods-Liga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liga.debug.xcconfig"; path = "Target Support Files/Pods-Liga/Pods-Liga.debug.xcconfig"; sourceTree = "<group>"; };
 		8690BE362E6C73D87DF8E66D /* Pods-Liga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liga.release.xcconfig"; path = "Target Support Files/Pods-Liga/Pods-Liga.release.xcconfig"; sourceTree = "<group>"; };
 		BC324811271B402F00B6EC1B /* LeftPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftPanelView.swift; sourceTree = "<group>"; };
@@ -52,6 +88,144 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DA9DBEE271E2EDC00764BEA /* RPCEngine */ = {
+			isa = PBXGroup;
+			children = (
+				2DA9DBEF271E303200764BEA /* RPCEngineContract.swift */,
+				2DA9DBF1271E304900764BEA /* RPCEngineBase.swift */,
+			);
+			path = RPCEngine;
+			sourceTree = "<group>";
+		};
+		2DA9DBF3271E397300764BEA /* SideController */ = {
+			isa = PBXGroup;
+			children = (
+				2DA9DBF4271E3A6700764BEA /* SideController.swift */,
+			);
+			path = SideController;
+			sourceTree = "<group>";
+		};
+		2DAA59B1271EF73100ECC994 /* WorkZones */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59B2271EF75100ECC994 /* WorkZonesViewController.swift */,
+				2DAA59BF271EFC9000ECC994 /* WorkZonesDataSource.swift */,
+				2DAA59C1271F00B300ECC994 /* WorkZonePresenter.swift */,
+			);
+			path = WorkZones;
+			sourceTree = "<group>";
+		};
+		2DAA59B4271EF98400ECC994 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59BC271EFA3100ECC994 /* Appereance */,
+				2DAA59B6271EF99900ECC994 /* Cells */,
+				2DAA59B5271EF98F00ECC994 /* BaseControllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2DAA59B5271EF98F00ECC994 /* BaseControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2DA9DBF3271E397300764BEA /* SideController */,
+			);
+			path = BaseControllers;
+			sourceTree = "<group>";
+		};
+		2DAA59B6271EF99900ECC994 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59B7271EF9B000ECC994 /* WorkGeoZone */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2DAA59B7271EF9B000ECC994 /* WorkGeoZone */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59B8271EF9C500ECC994 /* WorkGeoZone.swift */,
+				2DAA59BA271EF9D100ECC994 /* WorkGeoZoneCell.swift */,
+			);
+			path = WorkGeoZone;
+			sourceTree = "<group>";
+		};
+		2DAA59BC271EFA3100ECC994 /* Appereance */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59BD271EFA4800ECC994 /* Appereance+UILabel.swift */,
+			);
+			path = Appereance;
+			sourceTree = "<group>";
+		};
+		2DAA59C3271F05AD00ECC994 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59CC271F06BB00ECC994 /* Etities */,
+				2DAA59C9271F066800ECC994 /* DataStore */,
+				2DAA59C6271F061A00ECC994 /* Services */,
+				2DAA59C4271F05C900ECC994 /* WorkZoneRepository.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		2DAA59C6271F061A00ECC994 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59C7271F064300ECC994 /* WorkGeoZonesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2DAA59C9271F066800ECC994 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59CA271F068000ECC994 /* WorkGeoZonesDataStore.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2DAA59CC271F06BB00ECC994 /* Etities */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59CD271F06CE00ECC994 /* GeoZoneEntity.swift */,
+			);
+			path = Etities;
+			sourceTree = "<group>";
+		};
+		2DAA59CF271F071300ECC994 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59D1271F072D00ECC994 /* ViewState.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2DAA59D5271F9D0E00ECC994 /* PointInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59D6271F9DDB00ECC994 /* PointInfoViewController.swift */,
+				2DAA59D8271F9DE600ECC994 /* PointInfoPresenter.swift */,
+			);
+			path = PointInfo;
+			sourceTree = "<group>";
+		};
+		2DAA59DA271FA13400ECC994 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59DB271FA13D00ECC994 /* Structs */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2DAA59DB271FA13D00ECC994 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA59DC271FA14C00ECC994 /* Location.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
 		7F6F95D514FF623FB5B05BF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +246,11 @@
 		BC324813271B407200B6EC1B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2DAA59DA271FA13400ECC994 /* Common */,
+				2DAA59CF271F071300ECC994 /* Protocols */,
+				2DAA59C3271F05AD00ECC994 /* Interactors */,
+				2DAA59B4271EF98400ECC994 /* UI */,
+				2DA9DBEE271E2EDC00764BEA /* RPCEngine */,
 				BC324814271B407C00B6EC1B /* Core.swift */,
 				BC324816271B428F00B6EC1B /* Ext+UITableViewCell.swift */,
 			);
@@ -138,9 +317,12 @@
 		BC707A42271AD65600233AD4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2DAA59D5271F9D0E00ECC994 /* PointInfo */,
+				2DAA59B1271EF73100ECC994 /* WorkZones */,
 				BC324810271B401E00B6EC1B /* LeffPanel */,
 				BC707A30271AD54000233AD4 /* Main.storyboard */,
 				BC707A2E271AD54000233AD4 /* MapViewController.swift */,
+				2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -166,6 +348,7 @@
 				BC707A24271AD54000233AD4 /* Frameworks */,
 				BC707A25271AD54000233AD4 /* Resources */,
 				881366DB4D5067EF2E7AB59A /* [CP] Copy Pods Resources */,
+				49DE116DEA494638CCABAE87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,6 +406,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		49DE116DEA494638CCABAE87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Liga/Pods-Liga-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Liga/Pods-Liga-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Liga/Pods-Liga-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		881366DB4D5067EF2E7AB59A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,12 +470,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC324812271B402F00B6EC1B /* LeftPanelView.swift in Sources */,
+				2DAA59C5271F05C900ECC994 /* WorkZoneRepository.swift in Sources */,
 				BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */,
 				BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */,
 				BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */,
+				2DAA59BB271EF9D100ECC994 /* WorkGeoZoneCell.swift in Sources */,
 				BC324815271B407C00B6EC1B /* Core.swift in Sources */,
+				2DAA59DD271FA14C00ECC994 /* Location.swift in Sources */,
+				2DAA59B3271EF75100ECC994 /* WorkZonesViewController.swift in Sources */,
+				2DAA59D4271F10DF00ECC994 /* MapViewController+GeoZones.swift in Sources */,
+				2DAA59D9271F9DE600ECC994 /* PointInfoPresenter.swift in Sources */,
+				2DAA59D2271F072D00ECC994 /* ViewState.swift in Sources */,
+				2DA9DBF0271E303200764BEA /* RPCEngineContract.swift in Sources */,
+				2DA9DBF5271E3A6700764BEA /* SideController.swift in Sources */,
+				2DAA59C2271F00B300ECC994 /* WorkZonePresenter.swift in Sources */,
 				BC707A2B271AD54000233AD4 /* AppDelegate.swift in Sources */,
+				2DAA59BE271EFA4800ECC994 /* Appereance+UILabel.swift in Sources */,
+				2DAA59C0271EFC9000ECC994 /* WorkZonesDataSource.swift in Sources */,
+				2DAA59CE271F06CE00ECC994 /* GeoZoneEntity.swift in Sources */,
+				2DA9DBF2271E304900764BEA /* RPCEngineBase.swift in Sources */,
+				2DAA59B9271EF9C500ECC994 /* WorkGeoZone.swift in Sources */,
+				2DAA59C8271F064300ECC994 /* WorkGeoZonesService.swift in Sources */,
+				2DAA59D7271F9DDB00ECC994 /* PointInfoViewController.swift in Sources */,
 				BC32481A271B489300B6EC1B /* DragImageCell.swift in Sources */,
+				2DAA59CB271F068000ECC994 /* WorkGeoZonesDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

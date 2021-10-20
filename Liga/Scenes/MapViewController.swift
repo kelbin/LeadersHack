@@ -9,7 +9,7 @@ import GoogleMaps
 import UIKit
 import MobileCoreServices
 
-final class MapViewController: UIViewController, LeftPanelDelegate {
+final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate {
     
     var googleMap: GoogleMap?
     
@@ -23,17 +23,31 @@ final class MapViewController: UIViewController, LeftPanelDelegate {
         return $0
     }(LeftPanelView(frame: .zero))
     
+    weak var geoView: UIView?    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareMaps()
         prepareLayout()
+        showGeozones()
         prepareDragAndDrop()
         
+        geoView?.isHidden = true
+        self.view.bringSubviewToFront(leftPanel)
+        
         leftPanel.dataSource.delegate = self
+        leftPanel.delegate = self
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.showLeftPanel()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("open_geo"), object: nil)
+
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     private func prepareMaps() {
@@ -53,7 +67,7 @@ final class MapViewController: UIViewController, LeftPanelDelegate {
         
         dragInteraction.isEnabled = true
         
-        leftPanel.iconImageView.addInteraction(dragInteraction)
+        leftPanel.toolButtonGlass.addInteraction(dragInteraction)
         googleMap?.mapView?.addInteraction(dropInteraction)
     }
     
@@ -75,7 +89,7 @@ final class MapViewController: UIViewController, LeftPanelDelegate {
     }
     
     func updateLayers(forDropLocation dropLocation: CGPoint) {
-        if leftPanel.iconImageView.frame.contains(dropLocation) {
+        if leftPanel.toolButtonGlass.frame.contains(dropLocation) {
             
         } else if view.frame.contains(dropLocation) {
             
@@ -84,13 +98,27 @@ final class MapViewController: UIViewController, LeftPanelDelegate {
         }
     }
     
+    @objc func methodOfReceivedNotification(notification: Notification) {
+        geoView?.isHidden = false
+    }
+    
+    func goToPointsList() {
+        geoView?.isHidden = true
+        leftPanel.didSelectedTool(with: 1)
+    }
+    
+    func goToGeozones() {
+        geoView?.isHidden = false
+        leftPanel.didSelectedTool(with: 2)
+    }
+    
 }
 
 extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegate {
     
     func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
         
-        guard let image = leftPanel.iconImageView.image else { return [] }
+        guard let image = leftPanel.toolButtonGlass.image else { return [] }
         
         let provider = NSItemProvider(object: image)
         let item = UIDragItem(itemProvider: provider)
@@ -115,7 +143,7 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
 
         let operation: UIDropOperation
 
-        if leftPanel.iconImageView.frame.contains(dropLocation) {
+        if leftPanel.toolButtonGlass.frame.contains(dropLocation) {
             operation = session.localDragSession == nil ? .copy : .move
         } else {
             operation = .cancel
@@ -149,7 +177,7 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
         session.loadObjects(ofClass: UIImage.self) { imageItems in
             let images = imageItems as! [UIImage]
 
-            self.leftPanel.iconImageView.image = images.first
+            self.leftPanel.toolButtonGlass.image = images.first
         }
 
         let dropLocation = session.location(in: view)
