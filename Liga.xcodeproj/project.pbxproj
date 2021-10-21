@@ -341,21 +341,6 @@
 			path = PointInfo;
 			sourceTree = "<group>";
 		};
-		2DAA59DA271FA13400ECC994 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				2DAA59DB271FA13D00ECC994 /* Structs */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		2DAA59DB271FA13D00ECC994 /* Structs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Structs;
-			sourceTree = "<group>";
-		};
 		2DF85F692721CA2800C17C72 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,7 +402,6 @@
 		BC324813271B407200B6EC1B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2DAA59DA271FA13400ECC994 /* Common */,
 				2DAA59CF271F071300ECC994 /* Protocols */,
 				2DAA59C3271F05AD00ECC994 /* Interactors */,
 				2DAA59B4271EF98400ECC994 /* UI */,
