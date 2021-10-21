@@ -17,6 +17,15 @@ final class WorkGeoZoneCell: UITableViewCell {
         return $0.appereance(.medium)
     }(UILabel())
     
+    lazy private var mapImageView: UIImageView = {
+        $0.image = #imageLiteral(resourceName: "stubMao")
+        $0.isUserInteractionEnabled = true
+        $0.backgroundColor = .clear
+        $0.tintColor = .clear
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIImageView())
+    
     // MARK: - View lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -24,7 +33,14 @@ final class WorkGeoZoneCell: UITableViewCell {
         
         contentView.addSubview(cellTitleView)
         cellTitleView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.leading.trailing.top.equalToSuperview()
+        }
+        contentView.addSubview(mapImageView)
+        mapImageView.snp.makeConstraints { make in
+            make.top.equalTo(cellTitleView.snp.bottom).offset(4.0)
+            make.leading.equalToSuperview().offset(8.0)
+            make.trailing.equalToSuperview().offset(-8.0)
+            make.bottom.equalToSuperview().offset(-4.0)
         }
         
         

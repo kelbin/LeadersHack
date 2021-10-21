@@ -9,16 +9,26 @@ import UIKit
 
 enum LabelAppereance {
     case medium // Для крупных тайтлов
+    case primary
+    case secondary
 }
 
 extension UILabel {
+    
+    static let s = 1
     
     func appereance(_ appereance: LabelAppereance) -> UILabel {
         let label = self
         switch appereance {
         case .medium:
-            label.textColor = .red
-            //label.font =
+            label.textColor = ColorPallete.Text.primary
+            label.font = AppFonts.golos(style: .medium, size: 22.0)
+        case .primary:
+            label.textColor = ColorPallete.Text.primary
+            label.font = AppFonts.golos(style: .regular, size: 14.0)
+        case .secondary:
+            label.textColor = ColorPallete.Text.secondary
+            label.font = AppFonts.golos(style: .regular, size: 14.0)
         }
         return label
     }

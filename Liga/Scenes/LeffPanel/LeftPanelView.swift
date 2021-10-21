@@ -78,8 +78,6 @@ final class LeftPanelView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        prepareLayout()
-        prepareTouches()
         commonInit()
     }
     
@@ -115,13 +113,7 @@ final class LeftPanelView: UIView {
     
     private func prepareLayout() {
         
-        self.backgroundColor = .white
-//        self.addSubview(tableView)
-//
-//        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-//        tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        backgroundColor = .white
         
         self.addSubview(toolButtonGlass)
         self.addSubview(toolButtonPoint)
@@ -163,12 +155,25 @@ final class LeftPanelView: UIView {
             make.width.equalTo(48.0)
             make.height.equalTo(48.0)
         }
-        
-        //iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        //iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-       // iconImageView.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        //iconImageView.widthAnchor.constraint(equalToConstant: 32).isActive = true
+    }
+    
+    private var didAddedShadow: Bool = false
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if !didAddedShadow {
+            shadow()
+        }
+    }
+    
+    func shadow() {
+        didAddedShadow = true
+        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 0)
+        layer.shadowPath = shadowPath.cgPath
+        layer.shadowColor = UIColor(red: 0, green: 0.078, blue: 0.263, alpha: 0.12).cgColor
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 12
+        layer.shadowOffset = CGSize(width: 10, height: 4)
     }
     
     private func prepareTouches() {

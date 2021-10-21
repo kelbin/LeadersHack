@@ -23,4 +23,17 @@ extension MapViewController {
         geoView = vc.view
     }
     
+    func showSearchForPoint() {
+        let vc = SearchPointsViewController()
+        
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
+        vc.view.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.width.equalTo(400.0)
+        }
+        searchForPointView = vc.view
+    }
+    
 }
