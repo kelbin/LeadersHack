@@ -15,8 +15,6 @@ enum LabelAppereance {
 
 extension UILabel {
     
-    static let s = 1
-    
     func appereance(_ appereance: LabelAppereance) -> UILabel {
         let label = self
         switch appereance {
