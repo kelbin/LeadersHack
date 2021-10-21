@@ -10,13 +10,6 @@ import UIKit
 import Combine
 
 
-protocol WorkZonesViewProtocol: UIViewController {
-    var geoZones: [GeoZoneEntity] { get }
-}
-
-protocol WorkZonesPresenterProtocol: ViewState {
-}
-
 final class WorkZonesViewController: SideController {
     
     var presenter: WorkZonesPresenter!
@@ -27,6 +20,7 @@ final class WorkZonesViewController: SideController {
         
         RPCController = WorkZonesDataSource()
         presenter = WorkZonesPresenter()
+        bindings()
         super.viewDidLoad()
         presenter.viewDidLoad()
         view.backgroundColor = .red

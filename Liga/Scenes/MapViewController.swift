@@ -23,16 +23,22 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         return $0
     }(LeftPanelView(frame: .zero))
     
-    weak var geoView: UIView?    
+    weak var geoView: UIView?
+    weak var searchForPointView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareMaps()
         prepareLayout()
+        
         showGeozones()
+        showSearchForPoint()
+        
         prepareDragAndDrop()
         
         geoView?.isHidden = true
+        searchForPointView?.isHidden = true
+        
         self.view.bringSubviewToFront(leftPanel)
         
         leftPanel.dataSource.delegate = self
@@ -103,11 +109,13 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     }
     
     func goToPointsList() {
+        searchForPointView?.isHidden = false
         geoView?.isHidden = true
         leftPanel.didSelectedTool(with: 1)
     }
     
     func goToGeozones() {
+        searchForPointView?.isHidden = true
         geoView?.isHidden = false
         leftPanel.didSelectedTool(with: 2)
     }

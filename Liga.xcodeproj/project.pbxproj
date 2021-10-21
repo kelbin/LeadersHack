@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D0176FB2721796D00E7886C /* SearchPointsViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0176FA2721796D00E7886C /* SearchPointsViewControllers.swift */; };
+		2D0176FD2721797E00E7886C /* SearchPointsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0176FC2721797E00E7886C /* SearchPointsPresenter.swift */; };
+		2D01770027217C4E00E7886C /* SportPointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0176FF27217C4E00E7886C /* SportPointCell.swift */; };
+		2D01770327217F7200E7886C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01770227217F7200E7886C /* Colors.swift */; };
+		2D0177092721831700E7886C /* Golos-Text_DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0177052721831600E7886C /* Golos-Text_DemiBold.ttf */; };
+		2D01770A2721831700E7886C /* Golos-Text_Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0177062721831600E7886C /* Golos-Text_Black.ttf */; };
+		2D01770B2721831700E7886C /* Golos-Text_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0177072721831600E7886C /* Golos-Text_Regular.ttf */; };
+		2D01770C2721831700E7886C /* Golos-Text_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0177082721831700E7886C /* Golos-Text_Medium.ttf */; };
+		2D01770E272183AA00E7886C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01770D272183AA00E7886C /* Fonts.swift */; };
+		2D017710272187AE00E7886C /* SearchForPointDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01770F272187AE00E7886C /* SearchForPointDataSource.swift */; };
+		2D017712272187E200E7886C /* SportPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D017711272187E200E7886C /* SportPoint.swift */; };
+		2D0177162721BBE300E7886C /* SearchSportHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0177152721BBE300E7886C /* SearchSportHeader.swift */; };
+		2D0177182721BCFF00E7886C /* Appereance+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0177172721BCFF00E7886C /* Appereance+UITextField.swift */; };
+		2D01771B2721BE0600E7886C /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01771A2721BE0600E7886C /* AppTextField.swift */; };
 		2DA9DBF0271E303200764BEA /* RPCEngineContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBEF271E303200764BEA /* RPCEngineContract.swift */; };
 		2DA9DBF2271E304900764BEA /* RPCEngineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBF1271E304900764BEA /* RPCEngineBase.swift */; };
 		2DA9DBF5271E3A6700764BEA /* SideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBF4271E3A6700764BEA /* SideController.swift */; };
@@ -24,7 +38,9 @@
 		2DAA59D4271F10DF00ECC994 /* MapViewController+GeoZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */; };
 		2DAA59D7271F9DDB00ECC994 /* PointInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59D6271F9DDB00ECC994 /* PointInfoViewController.swift */; };
 		2DAA59D9271F9DE600ECC994 /* PointInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59D8271F9DE600ECC994 /* PointInfoPresenter.swift */; };
-		2DAA59DD271FA14C00ECC994 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA59DC271FA14C00ECC994 /* Location.swift */; };
+		2DF85F6B2721CA4300C17C72 /* GeoSportPointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F6A2721CA4300C17C72 /* GeoSportPointInteractor.swift */; };
+		2DF85F6D2721CB1600C17C72 /* SportPointEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F6C2721CB1600C17C72 /* SportPointEntity.swift */; };
+		2DF85F6F2721CC9D00C17C72 /* SportPointsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F6E2721CC9D00C17C72 /* SportPointsService.swift */; };
 		52D9C9F19A775DA377350CE0 /* Pods_Liga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9A01BF7154990CBF8F17DA /* Pods_Liga.framework */; };
 		BC32480C271B1BC200B6EC1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC707A30271AD54000233AD4 /* Main.storyboard */; };
 		BC32480D271B1BC400B6EC1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC707A33271AD54000233AD4 /* Assets.xcassets */; };
@@ -40,6 +56,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D0176FA2721796D00E7886C /* SearchPointsViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPointsViewControllers.swift; sourceTree = "<group>"; };
+		2D0176FC2721797E00E7886C /* SearchPointsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPointsPresenter.swift; sourceTree = "<group>"; };
+		2D0176FF27217C4E00E7886C /* SportPointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPointCell.swift; sourceTree = "<group>"; };
+		2D01770227217F7200E7886C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2D0177052721831600E7886C /* Golos-Text_DemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Golos-Text_DemiBold.ttf"; sourceTree = "<group>"; };
+		2D0177062721831600E7886C /* Golos-Text_Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Golos-Text_Black.ttf"; sourceTree = "<group>"; };
+		2D0177072721831600E7886C /* Golos-Text_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Golos-Text_Regular.ttf"; sourceTree = "<group>"; };
+		2D0177082721831700E7886C /* Golos-Text_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Golos-Text_Medium.ttf"; sourceTree = "<group>"; };
+		2D01770D272183AA00E7886C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		2D01770F272187AE00E7886C /* SearchForPointDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForPointDataSource.swift; sourceTree = "<group>"; };
+		2D017711272187E200E7886C /* SportPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPoint.swift; sourceTree = "<group>"; };
+		2D0177152721BBE300E7886C /* SearchSportHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSportHeader.swift; sourceTree = "<group>"; };
+		2D0177172721BCFF00E7886C /* Appereance+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appereance+UITextField.swift"; sourceTree = "<group>"; };
+		2D01771A2721BE0600E7886C /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		2DA9DBEF271E303200764BEA /* RPCEngineContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCEngineContract.swift; sourceTree = "<group>"; };
 		2DA9DBF1271E304900764BEA /* RPCEngineBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCEngineBase.swift; sourceTree = "<group>"; };
 		2DA9DBF4271E3A6700764BEA /* SideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideController.swift; sourceTree = "<group>"; };
@@ -57,7 +87,9 @@
 		2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+GeoZones.swift"; sourceTree = "<group>"; };
 		2DAA59D6271F9DDB00ECC994 /* PointInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoViewController.swift; sourceTree = "<group>"; };
 		2DAA59D8271F9DE600ECC994 /* PointInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoPresenter.swift; sourceTree = "<group>"; };
-		2DAA59DC271FA14C00ECC994 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2DF85F6A2721CA4300C17C72 /* GeoSportPointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoSportPointInteractor.swift; sourceTree = "<group>"; };
+		2DF85F6C2721CB1600C17C72 /* SportPointEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPointEntity.swift; sourceTree = "<group>"; };
+		2DF85F6E2721CC9D00C17C72 /* SportPointsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPointsService.swift; sourceTree = "<group>"; };
 		6BE03787328259AA0E889B3D /* Pods-Liga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liga.debug.xcconfig"; path = "Target Support Files/Pods-Liga/Pods-Liga.debug.xcconfig"; sourceTree = "<group>"; };
 		8690BE362E6C73D87DF8E66D /* Pods-Liga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liga.release.xcconfig"; path = "Target Support Files/Pods-Liga/Pods-Liga.release.xcconfig"; sourceTree = "<group>"; };
 		BC324811271B402F00B6EC1B /* LeftPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftPanelView.swift; sourceTree = "<group>"; };
@@ -88,6 +120,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D0176F92721794200E7886C /* SearchPoints */ = {
+			isa = PBXGroup;
+			children = (
+				2D0176FA2721796D00E7886C /* SearchPointsViewControllers.swift */,
+				2D0176FC2721797E00E7886C /* SearchPointsPresenter.swift */,
+				2D01770F272187AE00E7886C /* SearchForPointDataSource.swift */,
+			);
+			path = SearchPoints;
+			sourceTree = "<group>";
+		};
+		2D0176FE27217C3800E7886C /* SportPoint */ = {
+			isa = PBXGroup;
+			children = (
+				2D0176FF27217C4E00E7886C /* SportPointCell.swift */,
+				2D017711272187E200E7886C /* SportPoint.swift */,
+			);
+			path = SportPoint;
+			sourceTree = "<group>";
+		};
+		2D01770127217F6000E7886C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2D01770227217F7200E7886C /* Colors.swift */,
+				2D01770D272183AA00E7886C /* Fonts.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2D0177042721821F00E7886C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2D0177062721831600E7886C /* Golos-Text_Black.ttf */,
+				2D0177052721831600E7886C /* Golos-Text_DemiBold.ttf */,
+				2D0177082721831700E7886C /* Golos-Text_Medium.ttf */,
+				2D0177072721831600E7886C /* Golos-Text_Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2D0177132721BBB700E7886C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D0177142721BBBF00E7886C /* SearchSportHeader */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2D0177142721BBBF00E7886C /* SearchSportHeader */ = {
+			isa = PBXGroup;
+			children = (
+				2D0177152721BBE300E7886C /* SearchSportHeader.swift */,
+			);
+			path = SearchSportHeader;
+			sourceTree = "<group>";
+		};
+		2D0177192721BDFB00E7886C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2D01771A2721BE0600E7886C /* AppTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		2DA9DBEE271E2EDC00764BEA /* RPCEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +213,9 @@
 		2DAA59B4271EF98400ECC994 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2D0177192721BDFB00E7886C /* Components */,
+				2D0177132721BBB700E7886C /* Views */,
+				2D01770127217F6000E7886C /* Assets */,
 				2DAA59BC271EFA3100ECC994 /* Appereance */,
 				2DAA59B6271EF99900ECC994 /* Cells */,
 				2DAA59B5271EF98F00ECC994 /* BaseControllers */,
@@ -136,6 +234,7 @@
 		2DAA59B6271EF99900ECC994 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2D0176FE27217C3800E7886C /* SportPoint */,
 				2DAA59B7271EF9B000ECC994 /* WorkGeoZone */,
 			);
 			path = Cells;
@@ -154,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				2DAA59BD271EFA4800ECC994 /* Appereance+UILabel.swift */,
+				2D0177172721BCFF00E7886C /* Appereance+UITextField.swift */,
 			);
 			path = Appereance;
 			sourceTree = "<group>";
@@ -161,6 +261,7 @@
 		2DAA59C3271F05AD00ECC994 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				2DF85F692721CA2800C17C72 /* Interactors */,
 				2DAA59CC271F06BB00ECC994 /* Etities */,
 				2DAA59C9271F066800ECC994 /* DataStore */,
 				2DAA59C6271F061A00ECC994 /* Services */,
@@ -173,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				2DAA59C7271F064300ECC994 /* WorkGeoZonesService.swift */,
+				2DF85F6E2721CC9D00C17C72 /* SportPointsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				2DAA59CD271F06CE00ECC994 /* GeoZoneEntity.swift */,
+				2DF85F6C2721CB1600C17C72 /* SportPointEntity.swift */,
 			);
 			path = Etities;
 			sourceTree = "<group>";
@@ -221,9 +324,16 @@
 		2DAA59DB271FA13D00ECC994 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				2DAA59DC271FA14C00ECC994 /* Location.swift */,
 			);
 			path = Structs;
+			sourceTree = "<group>";
+		};
+		2DF85F692721CA2800C17C72 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				2DF85F6A2721CA4300C17C72 /* GeoSportPointInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 		7F6F95D514FF623FB5B05BF9 /* Frameworks */ = {
@@ -305,6 +415,7 @@
 		BC707A41271AD65100233AD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D0177042721821F00E7886C /* Fonts */,
 				BC707A33271AD54000233AD4 /* Assets.xcassets */,
 				BC707A35271AD54000233AD4 /* LaunchScreen.storyboard */,
 				BC707A38271AD54000233AD4 /* Info.plist */,
@@ -317,6 +428,7 @@
 		BC707A42271AD65600233AD4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2D0176F92721794200E7886C /* SearchPoints */,
 				2DAA59D5271F9D0E00ECC994 /* PointInfo */,
 				2DAA59B1271EF73100ECC994 /* WorkZones */,
 				BC324810271B401E00B6EC1B /* LeffPanel */,
@@ -397,9 +509,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC32480D271B1BC400B6EC1B /* Assets.xcassets in Resources */,
+				2D0177092721831700E7886C /* Golos-Text_DemiBold.ttf in Resources */,
+				2D01770A2721831700E7886C /* Golos-Text_Black.ttf in Resources */,
 				BC32481C271B73B900B6EC1B /* heats.json in Resources */,
 				BC32480F271B1BCA00B6EC1B /* LaunchScreen.storyboard in Resources */,
+				2D01770B2721831700E7886C /* Golos-Text_Regular.ttf in Resources */,
 				BC32480C271B1BC200B6EC1B /* Main.storyboard in Resources */,
+				2D01770C2721831700E7886C /* Golos-Text_Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,26 +586,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC324812271B402F00B6EC1B /* LeftPanelView.swift in Sources */,
+				2DF85F6F2721CC9D00C17C72 /* SportPointsService.swift in Sources */,
 				2DAA59C5271F05C900ECC994 /* WorkZoneRepository.swift in Sources */,
 				BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */,
 				BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */,
+				2D01771B2721BE0600E7886C /* AppTextField.swift in Sources */,
 				BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */,
 				2DAA59BB271EF9D100ECC994 /* WorkGeoZoneCell.swift in Sources */,
 				BC324815271B407C00B6EC1B /* Core.swift in Sources */,
-				2DAA59DD271FA14C00ECC994 /* Location.swift in Sources */,
 				2DAA59B3271EF75100ECC994 /* WorkZonesViewController.swift in Sources */,
 				2DAA59D4271F10DF00ECC994 /* MapViewController+GeoZones.swift in Sources */,
 				2DAA59D9271F9DE600ECC994 /* PointInfoPresenter.swift in Sources */,
 				2DAA59D2271F072D00ECC994 /* ViewState.swift in Sources */,
+				2D0176FD2721797E00E7886C /* SearchPointsPresenter.swift in Sources */,
+				2D017712272187E200E7886C /* SportPoint.swift in Sources */,
 				2DA9DBF0271E303200764BEA /* RPCEngineContract.swift in Sources */,
 				2DA9DBF5271E3A6700764BEA /* SideController.swift in Sources */,
 				2DAA59C2271F00B300ECC994 /* WorkZonePresenter.swift in Sources */,
+				2D017710272187AE00E7886C /* SearchForPointDataSource.swift in Sources */,
+				2D01770E272183AA00E7886C /* Fonts.swift in Sources */,
+				2D0177182721BCFF00E7886C /* Appereance+UITextField.swift in Sources */,
 				BC707A2B271AD54000233AD4 /* AppDelegate.swift in Sources */,
+				2D01770027217C4E00E7886C /* SportPointCell.swift in Sources */,
+				2D0177162721BBE300E7886C /* SearchSportHeader.swift in Sources */,
+				2DF85F6B2721CA4300C17C72 /* GeoSportPointInteractor.swift in Sources */,
 				2DAA59BE271EFA4800ECC994 /* Appereance+UILabel.swift in Sources */,
 				2DAA59C0271EFC9000ECC994 /* WorkZonesDataSource.swift in Sources */,
+				2DF85F6D2721CB1600C17C72 /* SportPointEntity.swift in Sources */,
+				2D01770327217F7200E7886C /* Colors.swift in Sources */,
 				2DAA59CE271F06CE00ECC994 /* GeoZoneEntity.swift in Sources */,
 				2DA9DBF2271E304900764BEA /* RPCEngineBase.swift in Sources */,
 				2DAA59B9271EF9C500ECC994 /* WorkGeoZone.swift in Sources */,
+				2D0176FB2721796D00E7886C /* SearchPointsViewControllers.swift in Sources */,
 				2DAA59C8271F064300ECC994 /* WorkGeoZonesService.swift in Sources */,
 				2DAA59D7271F9DDB00ECC994 /* PointInfoViewController.swift in Sources */,
 				BC32481A271B489300B6EC1B /* DragImageCell.swift in Sources */,

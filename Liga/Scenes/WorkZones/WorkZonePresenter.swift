@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class WorkZonesPresenter: WorkZonesPresenterProtocol {
+final class WorkZonesPresenter: ViewState {
     
     @Published var geoZones: [GeoZoneEntity] = []
     
@@ -18,9 +18,9 @@ final class WorkZonesPresenter: WorkZonesPresenterProtocol {
     
     func stub() -> [GeoZoneEntity]  {
         return [
-            .init(name: "Щукино", minLocation: Location(longitude: 55.812778, lattitude: 37.449667, adresName: nil), maxLocation: Location(longitude: 55.789838, lattitude: 37.502025, adresName: nil)),
-            .init(name: "Южное Тушино", minLocation: Location(longitude: 55.862222, lattitude: 37.410472, adresName: nil), maxLocation: Location(longitude: 55.849528, lattitude: 37.456417, adresName: nil)),
-            .init(name: "Южное Тушино", minLocation: Location(longitude: 55.911546, lattitude: 37.310623, adresName: nil), maxLocation: Location(longitude: 55.746482, lattitude: 37.543053, adresName: nil))
+            .init(name: "Щукино", minLocation: Location(longitude: 55.812778, latitude: 37.449667, fullAdressString: nil), maxLocation: Location(longitude: 55.789838, latitude: 37.502025, fullAdressString: nil)),
+            .init(name: "Южное Тушино", minLocation: Location(longitude: 55.862222, latitude: 37.410472, fullAdressString: nil), maxLocation: Location(longitude: 55.849528, latitude: 37.456417, fullAdressString: nil)),
+            .init(name: "СЗАО", minLocation: Location(longitude: 55.911546, latitude: 37.310623, fullAdressString: nil), maxLocation: Location(longitude: 55.746482, latitude: 37.543053, fullAdressString: nil))
             
         ]
     }

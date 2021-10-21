@@ -49,7 +49,7 @@ class RPCEngineBase: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     func willSetModel() {
-        
+        tableView?.separatorStyle = .none
     }
     
     func didSetModel() {
