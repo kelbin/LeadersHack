@@ -9,14 +9,12 @@ import Foundation
 import UIKit
 import Combine
 
-
 final class SearchPointsViewController: SideController {
     
     weak var serchBarHeader: SearchBarHeaderView?
     
     var presenter: SearchPointsPresenter!
     
-
     override func viewDidLoad() {
         let seacrhBarHeader = SearchBarHeaderView()
         seacrhBarHeader.headerTitle = "Спортивный объект"
@@ -40,8 +38,9 @@ final class SearchPointsViewController: SideController {
     
     private func bindings() {
         presenter.$sportPoints.sink { [weak self] _points in
+            (self?.parent as? MapViewController)
             self?.RPCController.reloadModel(_points.map({ _apiModel in
-                SportPoint(title: _apiModel.name, text: _apiModel.location.fullAdressString ?? "", key: _apiModel._id)
+                SportPoint(position: Position(latitude: 0, longitude: 0), title: _apiModel.name, text: _apiModel.location.fullAdressString ?? "", key: _apiModel._id)
             }))
         }.store(in: &cancellable)
     }

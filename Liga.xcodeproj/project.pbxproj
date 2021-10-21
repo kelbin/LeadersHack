@@ -50,6 +50,8 @@
 		BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC324816271B428F00B6EC1B /* Ext+UITableViewCell.swift */; };
 		BC32481A271B489300B6EC1B /* DragImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC324819271B489300B6EC1B /* DragImageCell.swift */; };
 		BC32481C271B73B900B6EC1B /* heats.json in Resources */ = {isa = PBXBuildFile; fileRef = BC32481B271B73B900B6EC1B /* heats.json */; };
+		BC5FDBC627221EFC00D44659 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBC527221EFC00D44659 /* MapViewPresenter.swift */; };
+		BC5FDBC92722282A00D44659 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBC82722282A00D44659 /* Throttler.swift */; };
 		BC707A2B271AD54000233AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A2A271AD54000233AD4 /* AppDelegate.swift */; };
 		BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A2E271AD54000233AD4 /* MapViewController.swift */; };
 		BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A3E271AD63B00233AD4 /* GoogleMaps.swift */; };
@@ -97,6 +99,8 @@
 		BC324816271B428F00B6EC1B /* Ext+UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UITableViewCell.swift"; sourceTree = "<group>"; };
 		BC324819271B489300B6EC1B /* DragImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragImageCell.swift; sourceTree = "<group>"; };
 		BC32481B271B73B900B6EC1B /* heats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = heats.json; sourceTree = "<group>"; };
+		BC5FDBC527221EFC00D44659 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		BC5FDBC82722282A00D44659 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		BC707A27271AD54000233AD4 /* Liga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC707A2A271AD54000233AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC707A2E271AD54000233AD4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 		2DAA59B4271EF98400ECC994 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BC5FDBC72722280600D44659 /* Throttler */,
 				2D0177192721BDFB00E7886C /* Components */,
 				2D0177132721BBB700E7886C /* Views */,
 				2D01770127217F6000E7886C /* Assets */,
@@ -313,21 +318,6 @@
 			path = PointInfo;
 			sourceTree = "<group>";
 		};
-		2DAA59DA271FA13400ECC994 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				2DAA59DB271FA13D00ECC994 /* Structs */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		2DAA59DB271FA13D00ECC994 /* Structs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Structs;
-			sourceTree = "<group>";
-		};
 		2DF85F692721CA2800C17C72 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,7 +346,6 @@
 		BC324813271B407200B6EC1B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2DAA59DA271FA13400ECC994 /* Common */,
 				2DAA59CF271F071300ECC994 /* Protocols */,
 				2DAA59C3271F05AD00ECC994 /* Interactors */,
 				2DAA59B4271EF98400ECC994 /* UI */,
@@ -373,6 +362,24 @@
 				BC324819271B489300B6EC1B /* DragImageCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BC5FDBC327221EDE00D44659 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BC707A2E271AD54000233AD4 /* MapViewController.swift */,
+				2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */,
+				BC5FDBC527221EFC00D44659 /* MapViewPresenter.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		BC5FDBC72722280600D44659 /* Throttler */ = {
+			isa = PBXGroup;
+			children = (
+				BC5FDBC82722282A00D44659 /* Throttler.swift */,
+			);
+			path = Throttler;
 			sourceTree = "<group>";
 		};
 		BC707A1E271AD54000233AD4 = {
@@ -428,13 +435,12 @@
 		BC707A42271AD65600233AD4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BC5FDBC327221EDE00D44659 /* Map */,
 				2D0176F92721794200E7886C /* SearchPoints */,
 				2DAA59D5271F9D0E00ECC994 /* PointInfo */,
 				2DAA59B1271EF73100ECC994 /* WorkZones */,
 				BC324810271B401E00B6EC1B /* LeffPanel */,
 				BC707A30271AD54000233AD4 /* Main.storyboard */,
-				BC707A2E271AD54000233AD4 /* MapViewController.swift */,
-				2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */,
 				BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */,
 				2D01771B2721BE0600E7886C /* AppTextField.swift in Sources */,
+				BC5FDBC627221EFC00D44659 /* MapViewPresenter.swift in Sources */,
 				BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */,
 				2DAA59BB271EF9D100ECC994 /* WorkGeoZoneCell.swift in Sources */,
 				BC324815271B407C00B6EC1B /* Core.swift in Sources */,
@@ -607,6 +614,7 @@
 				2D01770E272183AA00E7886C /* Fonts.swift in Sources */,
 				2D0177182721BCFF00E7886C /* Appereance+UITextField.swift in Sources */,
 				BC707A2B271AD54000233AD4 /* AppDelegate.swift in Sources */,
+				BC5FDBC92722282A00D44659 /* Throttler.swift in Sources */,
 				2D01770027217C4E00E7886C /* SportPointCell.swift in Sources */,
 				2D0177162721BBE300E7886C /* SearchSportHeader.swift in Sources */,
 				2DF85F6B2721CA4300C17C72 /* GeoSportPointInteractor.swift in Sources */,

@@ -15,9 +15,6 @@ final class WorkZonesViewController: SideController {
     var presenter: WorkZonesPresenter!
     
     override func viewDidLoad() {
-        
-        //
-        
         RPCController = WorkZonesDataSource()
         presenter = WorkZonesPresenter()
         bindings()
@@ -44,7 +41,7 @@ final class WorkZonesViewController: SideController {
     private func bindings() {
         presenter.$geoZones.sink { [weak self] model in
             self?.RPCController.reloadModel(model.map({ apiModel in
-                WorkGeoZone(title: apiModel.name, text: nil, key: String("")) }))
+                                                        WorkGeoZone(position: Position(latitude: apiModel.minLocation.latitude, longitude: apiModel.minLocation.longitude), title: apiModel.name, text: nil, key: String("")) }))
         }.store(in: &cancellable)
             
     }

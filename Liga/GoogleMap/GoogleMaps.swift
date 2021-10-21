@@ -38,6 +38,7 @@ final class GoogleMapImp: GoogleMap {
                                               zoom: 12)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         
+        mapView?.isMyLocationEnabled = true
         mapView?.settings.myLocationButton = true
         
         initHeatMap()

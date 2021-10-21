@@ -11,8 +11,6 @@ import MobileCoreServices
 
 final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate {
     
-    var googleMap: GoogleMap?
-    
     enum Constants {
         static let leftPanelWidth: CGFloat = 100
     }
@@ -23,12 +21,17 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         return $0
     }(LeftPanelView(frame: .zero))
     
+    var googleMap: GoogleMap?
+    var presenter: MapPresenterInput!
+    
     weak var geoView: UIView?
     weak var searchForPointView: UIView?
     
     var startZoomPosition: Float?
     
     override func viewDidLoad() {
+        presenter = MapPresenter()
+        
         super.viewDidLoad()
         prepareMaps()
         prepareLayout()
@@ -51,8 +54,6 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("open_geo"), object: nil)
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +107,10 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         } else {
             
         }
+    }
+    
+    func addSportsPlacemarks() {
+//        googleMap?.addMarker(latitude: <#T##Double#>, and: <#T##Double#>, title: <#T##String#>, snippet: <#T##String#>)
     }
     
     @objc func methodOfReceivedNotification(notification: Notification) {
@@ -206,9 +211,12 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        if(position.zoom != self.startZoomPosition) {
-            print(position.zoom)
+        Throttler.go { [weak self] in
+            self?.presenter.fetchPlaceMarks()
         }
+//        if(position.zoom != self.startZoomPosition) {
+//            
+//        }
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {

@@ -6,10 +6,8 @@
 //
 
 struct WorkGeoZone: alphaRPC {
-    
+    var position: Position
     let title: String
     let text: String?
-    
-    
     let key: String
 }

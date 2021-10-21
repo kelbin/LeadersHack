@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 final class SearchPointsPresenter {
     @Published var sportPoints: [SportPointEntity] = []
     

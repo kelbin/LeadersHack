@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import GoogleMaps
 
 final class WorkGeoZoneCell: UITableViewCell {
     
@@ -17,33 +17,32 @@ final class WorkGeoZoneCell: UITableViewCell {
         return $0.appereance(.medium)
     }(UILabel())
     
-    lazy private var mapImageView: UIImageView = {
-        $0.image = #imageLiteral(resourceName: "stubMao")
-        $0.isUserInteractionEnabled = true
-        $0.backgroundColor = .clear
-        $0.tintColor = .clear
-        $0.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var mapView: GMSMapView = {
         return $0
-    }(UIImageView())
+    }(GMSMapView())
     
     // MARK: - View lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        prepareLayout()
+        self.selectionStyle = .none
+    }
+    
+    private func prepareLayout() {
         
         contentView.addSubview(cellTitleView)
         cellTitleView.snp.makeConstraints { maker in
             maker.leading.trailing.top.equalToSuperview()
         }
-        contentView.addSubview(mapImageView)
-        mapImageView.snp.makeConstraints { make in
+        
+        contentView.addSubview(mapView)
+        mapView.snp.makeConstraints { make in
             make.top.equalTo(cellTitleView.snp.bottom).offset(4.0)
             make.leading.equalToSuperview().offset(8.0)
             make.trailing.equalToSuperview().offset(-8.0)
             make.bottom.equalToSuperview().offset(-4.0)
         }
-        
-        
     }
     
     required init?(coder: NSCoder) {
@@ -58,6 +57,12 @@ final class WorkGeoZoneCell: UITableViewCell {
     
     func configure(_ model: alphaRPC) {
         cellTitleView.text = model.title
+        
+        let camera = GMSCameraPosition.camera(withLatitude: model.position.longitude,
+                                              longitude: model.position.latitude,
+                                              zoom: 12)
+        mapView.camera = camera
+        mapView.isUserInteractionEnabled = false
     }
     
 }
