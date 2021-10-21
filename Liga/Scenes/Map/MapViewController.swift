@@ -26,6 +26,8 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     weak var geoView: UIView?
     weak var searchForPointView: UIView?
     
+    var startZoomPosition: Float?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareMaps()
@@ -64,6 +66,8 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         googleMap?.addMarker(latitude: 55.748286, and: 37.622791, title: "Тута", snippet: "Сдеся")
         
         googleMap?.mapView?.delegate = self
+        
+        startZoomPosition = googleMap?.mapView?.camera.zoom
     }
     
     private func prepareDragAndDrop() {
@@ -201,8 +205,14 @@ extension MapViewController: GMSMapViewDelegate {
         print("draggeds")
     }
     
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        if(position.zoom != self.startZoomPosition) {
+            print(position.zoom)
+        }
+    }
+    
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
-        print("will move gesture =", gesture)
+        print("will move gesture =", mapView.camera.zoom)
     }
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
