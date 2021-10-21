@@ -12,15 +12,24 @@ import Combine
 
 final class WorkZonesViewController: SideController {
     
+    weak var serchBarHeader: SimpleSearchBarHeaderView?
+    
     var presenter: WorkZonesPresenter!
     
     override func viewDidLoad() {
+        
+        let seacrhBarHeader = SimpleSearchBarHeaderView()
+        seacrhBarHeader.headerTitle = "Районы"
+        header = seacrhBarHeader
+        headerHeight = 154.0
+        
+        self.serchBarHeader = seacrhBarHeader
+        
         RPCController = WorkZonesDataSource()
         presenter = WorkZonesPresenter()
         bindings()
         super.viewDidLoad()
         presenter.viewDidLoad()
-        view.backgroundColor = .red
     }
     
     override func viewWillAppear(_ animated: Bool) {

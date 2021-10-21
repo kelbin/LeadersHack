@@ -25,7 +25,6 @@ final class SearchPointsViewController: SideController {
         
         RPCController = SearchForPointDataSource()
         super.viewDidLoad()
-        view.backgroundColor = .red
         presenter = SearchPointsPresenter()
         bindings()
         presenter.viewDidLoad()

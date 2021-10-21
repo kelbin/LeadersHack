@@ -40,14 +40,14 @@ final class SportPointCell: UITableViewCell {
         
         backView.addSubview(pointTitleLabel)
         pointTitleLabel.snp.makeConstraints { maker in
-            maker.leading.equalToSuperview().offset(40.0)
+            maker.leading.equalToSuperview().offset(32.0)
             maker.trailing.equalToSuperview().offset(-4.0)
             maker.top.equalToSuperview().offset(8.0)
         }
         
         backView.addSubview(pointAdressLabel)
         pointAdressLabel.snp.makeConstraints { maker in
-            maker.leading.equalToSuperview().offset(40.0)
+            maker.leading.equalToSuperview().offset(32.0)
             maker.trailing.equalToSuperview().offset(-4.0)
             maker.top.equalTo(pointTitleLabel.snp.bottom).offset(2.0)
         }

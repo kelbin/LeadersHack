@@ -11,10 +11,10 @@ import Combine
 final class SearchPointsPresenter {
     @Published var sportPoints: [SportPointEntity] = []
     
-    var interactor: GeoInteractor!
+    var interactor: GeoInteractor = globalInteractor
     
     func viewDidLoad() {
-        self.interactor = GeoInteractor(workingFrame: BoxCoordintate(topLeftLongitude: 37.410472, topLeftLatitude: 55.849528, bottomRightLongitude: 37.543053, bottomRightLatitude: 55.911546))
+        self.interactor = globalInteractor
     }
     
     func viewWillAppear() {
