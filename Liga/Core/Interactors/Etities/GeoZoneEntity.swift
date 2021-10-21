@@ -12,4 +12,8 @@ struct GeoZoneEntity {
     var name: String
     var minLocation: Location
     var maxLocation: Location
+    var sport_points_count: Int
+    var sport_points_size: Double
 }
+
+extension GeoZoneEntity: Codable {}

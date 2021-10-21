@@ -23,6 +23,10 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         return $0
     }(LeftPanelView(frame: .zero))
     
+    private lazy var lensView: MapLensCardView = {
+        return $0
+    }(MapLensCardView())
+    
     weak var geoView: UIView?
     weak var searchForPointView: UIView?
     
@@ -47,10 +51,6 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.showLeftPanel()
         }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("open_geo"), object: nil)
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +80,14 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     private func prepareLayout() {
         
         view.addSubview(leftPanel)
+        view.addSubview(lensView)
+        
+        lensView.snp.makeConstraints { maker in
+            maker.trailing.equalToSuperview().offset(-40.0)
+            maker.top.equalToSuperview().offset(48.0)
+            maker.width.equalTo(162.0)
+            maker.height.equalTo(170.0)
+        }
         
         leftPanel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: -Constants.leftPanelWidth).isActive = true
         leftPanel.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
