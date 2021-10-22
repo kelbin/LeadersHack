@@ -30,5 +30,11 @@ final class WorkSpaceViewController: UIViewController {
         return $0
     }(UIProgressView())
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .white
+    }
+    
     
 }

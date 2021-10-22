@@ -21,7 +21,7 @@ struct BoxCoordintate {
     }
 }
 
-let globalInteractor = GeoInteractor(workingFrame: BoxCoordintate.zero)
+let globalInteractor = GeoInteractor()
 
 final class GeoInteractor {
     
@@ -29,27 +29,29 @@ final class GeoInteractor {
     var workService: WorkZoneService = WorkZoneService()
     
     @Published var sportPoints: [SportPointEntity] = []
-    
     @Published var serachString: String = ""
-    @Published var currentFrame: BoxCoordintate
-    
-    //@Published var currentFrame: BoxCoordintate!
+    @Published var currentSpace: GeoZoneEntity!
+    @Published var currentFrame: BoxCoordintate = .zero
     @Published var workZones: [GeoZoneEntity] = []
     
-    init(workingFrame: BoxCoordintate) {
-        self.currentFrame = workingFrame
+    init() {
+        geoBindings()
     }
     
-    func setup(workingFrame: BoxCoordintate) {
-        f()
+    func setup(wokGeoSpace: GeoZoneEntity) {
+        currentSpace = wokGeoSpace
+        currentFrame = BoxCoordintate(topLeftLongitude: wokGeoSpace.minLocation.longitude, topLeftLatitude: wokGeoSpace.minLocation.latitude, bottomRightLongitude: wokGeoSpace.maxLocation.longitude, bottomRightLatitude: wokGeoSpace.maxLocation.latitude)
+        sportsBindings()
     }
     
-    func f() {
+    func sportsBindings() {
         Publishers.CombineLatest($serachString, $currentFrame)
             .flatMap { (searchEntry, currentFrame) in
                 return self.service.fetchSposrtPoints(with: currentFrame)
             }.assign(to: \.sportPoints, on: self).store(in: &cancellable)
-        
+    }
+    
+    func geoBindings() {
         workService.fetchGeozones().sink { _model in
             self.workZones = _model
         }.store(in: &cancellable)
