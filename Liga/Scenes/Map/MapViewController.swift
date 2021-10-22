@@ -9,6 +9,10 @@ import GoogleMaps
 import UIKit
 import MobileCoreServices
 
+protocol MapViewInput: AnyObject {
+    func updateMarkers(position: Location)
+}
+
 final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate {
     
     enum Constants {
@@ -34,7 +38,7 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     var startZoomPosition: Float?
     
     override func viewDidLoad() {
-        presenter = MapPresenter()
+        presenter = MapPresenter(view: self)
         
         super.viewDidLoad()
         prepareMaps()
@@ -117,10 +121,6 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         } else {
             
         }
-    }
-    
-    func addSportsPlacemarks() {
-//        googleMap?.addMarker(latitude: <#T##Double#>, and: <#T##Double#>, title: <#T##String#>, snippet: <#T##String#>)
     }
     
     @objc func methodOfReceivedNotification(notification: Notification) {
@@ -221,12 +221,11 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        Throttler.go { [weak self] in
-            self?.presenter.fetchPlaceMarks()
-        }
-//        if(position.zoom != self.startZoomPosition) {
-//            
-//        }
+        let projection = mapView.projection.visibleRegion()
+        
+        presenter.fetchPlaceMarks(boxCoordinate: BoxCoordintate(topLeftLongitude:
+                                                                projection.farLeft.longitude,
+                                                                topLeftLatitude: projection.farLeft.latitude, bottomRightLongitude: projection.nearRight.longitude, bottomRightLatitude: projection.nearRight.latitude))
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
@@ -235,6 +234,17 @@ extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         print("idle at =", position)
+    }
+    
+}
+
+
+extension MapViewController: MapViewInput {
+    
+    func updateMarkers(position: Location) {
+        DispatchQueue.main.async {
+            self.googleMap?.addMarker(latitude: position.latitude, and: position.longitude, title: position.fullAdressString ?? "No name", snippet: "")
+        }
     }
     
 }

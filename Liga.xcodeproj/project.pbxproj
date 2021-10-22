@@ -58,7 +58,7 @@
 		BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC324816271B428F00B6EC1B /* Ext+UITableViewCell.swift */; };
 		BC32481A271B489300B6EC1B /* DragImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC324819271B489300B6EC1B /* DragImageCell.swift */; };
 		BC32481C271B73B900B6EC1B /* heats.json in Resources */ = {isa = PBXBuildFile; fileRef = BC32481B271B73B900B6EC1B /* heats.json */; };
-		BC5FDBC627221EFC00D44659 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBC527221EFC00D44659 /* MapViewPresenter.swift */; };
+		BC5FDBC627221EFC00D44659 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBC527221EFC00D44659 /* MapPresenter.swift */; };
 		BC5FDBC92722282A00D44659 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBC82722282A00D44659 /* Throttler.swift */; };
 		BC707A2B271AD54000233AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A2A271AD54000233AD4 /* AppDelegate.swift */; };
 		BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A2E271AD54000233AD4 /* MapViewController.swift */; };
@@ -115,7 +115,7 @@
 		BC324816271B428F00B6EC1B /* Ext+UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UITableViewCell.swift"; sourceTree = "<group>"; };
 		BC324819271B489300B6EC1B /* DragImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragImageCell.swift; sourceTree = "<group>"; };
 		BC32481B271B73B900B6EC1B /* heats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = heats.json; sourceTree = "<group>"; };
-		BC5FDBC527221EFC00D44659 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		BC5FDBC527221EFC00D44659 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		BC5FDBC82722282A00D44659 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		BC707A27271AD54000233AD4 /* Liga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC707A2A271AD54000233AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -430,7 +430,7 @@
 			children = (
 				BC707A2E271AD54000233AD4 /* MapViewController.swift */,
 				2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */,
-				BC5FDBC527221EFC00D44659 /* MapViewPresenter.swift */,
+				BC5FDBC527221EFC00D44659 /* MapPresenter.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -661,7 +661,7 @@
 				BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */,
 				BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */,
 				2D01771B2721BE0600E7886C /* AppTextField.swift in Sources */,
-				BC5FDBC627221EFC00D44659 /* MapViewPresenter.swift in Sources */,
+				BC5FDBC627221EFC00D44659 /* MapPresenter.swift in Sources */,
 				BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */,
 				2DAA59BB271EF9D100ECC994 /* WorkGeoZoneCell.swift in Sources */,
 				BC324815271B407C00B6EC1B /* Core.swift in Sources */,
