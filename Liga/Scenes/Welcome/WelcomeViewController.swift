@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import Combine
 
 final class WelcomeViewController: UIViewController {
     
@@ -25,9 +25,21 @@ final class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         layout()
-        let box = BoxCoordintate(topLeftLongitude: 37.410472, topLeftLatitude: 55.849528, bottomRightLongitude: 37.543053, bottomRightLatitude: 55.911546)
-        globalInteractor.setup(workingFrame: box)
+        GoButton.isHidden = true
+        globalInteractor.$workZones.sink { _ in } receiveValue: { _model in
+            print(_model)
+            if let first = _model.first {
+                print(first)
+                self.GoButton.isHidden = false
+                globalInteractor.setup(wokGeoSpace: first)
+            }
+        }.store(in: &cancellable)
+
+        
+        //globalInteractor.setup(workingFrame: box)
     }
+    
+    private var cancellable = Set<AnyCancellable>()
     
     @objc func enter() {
         let vc = MapViewController()
