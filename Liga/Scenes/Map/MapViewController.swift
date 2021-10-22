@@ -32,6 +32,8 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     var googleMap: GoogleMap?
     var presenter: MapPresenterInput!
     
+    var markers: [Location] = []
+    
     weak var geoView: UIView?
     weak var searchForPointView: UIView?
     
@@ -239,7 +241,14 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        print("idle at =", position)
+        markers.forEach { position in
+            if !self.isMarkerWithinScreen(marker: GMSMarker(position: CLLocationCoordinate2D(latitude: position.latitude, longitude: position.longitude))) {
+                
+                self.markers.removeAll(where: { $0.fullAdressString == $0.fullAdressString })
+                self.googleMap?.mapView?.clear()
+            }
+        }
+
     }
     
 }
@@ -249,8 +258,23 @@ extension MapViewController: MapViewInput {
     
     func updateMarkers(position: Location) {
         DispatchQueue.main.async {
-            self.googleMap?.addMarker(latitude: position.latitude, and: position.longitude, title: position.fullAdressString ?? "No name", snippet: "")
+            
+           let isExist = self.markers.contains(where: { $0.fullAdressString == position.fullAdressString })
+            
+            print(self.markers.count)
+            
+            if !isExist {
+                
+                self.markers.append(position)
+                self.googleMap?.addMarker(latitude: position.latitude, and: position.longitude, title: position.fullAdressString ?? "", snippet: "")
+            }
         }
+    }
+    
+    private func isMarkerWithinScreen(marker: GMSMarker) -> Bool {
+        let region = googleMap?.mapView?.projection.visibleRegion()
+        let bounds = GMSCoordinateBounds(region: region!)
+        return bounds.contains(marker.position)
     }
     
 }

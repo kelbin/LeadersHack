@@ -22,11 +22,11 @@ final class MapPresenter: MapPresenterInput {
     }
     
     func fetchPlaceMarks(boxCoordinate: BoxCoordintate) {
-        let closure: () -> Void = {
+        let closure: () -> Void = { [weak self] in
             globalInteractor.currentFrame = boxCoordinate
             globalInteractor.$sportPoints.sink { model in
-                model.forEach({ self.view.updateMarkers(position: $0.location) })
-            }.store(in: &self.cancellable)
+                model.forEach({ self?.view.updateMarkers(position: $0.location) })
+            }.store(in: &self!.cancellable)
         }
         
         Throttler.go {

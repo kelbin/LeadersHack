@@ -35,7 +35,7 @@ final class GoogleMapImp: GoogleMap {
     init(view: UIView, position: [Position]) {
         let camera = GMSCameraPosition.camera(withLatitude: position[0].latitude,
                                               longitude: position[0].longitude,
-                                              zoom: 12)
+                                              zoom: 30)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         
         mapView?.isMyLocationEnabled = true
@@ -112,6 +112,7 @@ final class GoogleMapImp: GoogleMap {
                    snippet: String = "") {
         
         let marker = GMSMarker()
+        marker.appearAnimation = .pop
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = title
         marker.snippet = snippet
