@@ -11,6 +11,7 @@ import UIKit
 protocol ToolbarDelegate: AnyObject {
     func goToPointsList()
     func goToGeozones()
+    func goToSettings()
 }
 
 final class LeftPanelView: UIView {
@@ -31,7 +32,7 @@ final class LeftPanelView: UIView {
     
     lazy var toolButtonGlass: UIImageView = {
         $0.tag = 1
-        $0.image = #imageLiteral(resourceName: "ZoomGlassSelected")
+        $0.image = #imageLiteral(resourceName: "ZoomGlassRegular")
         setupApperance(for: $0)
         setupTouch(for: $0)
         return $0
@@ -68,6 +69,22 @@ final class LeftPanelView: UIView {
         setupApperance(for: $0)
         return $0
     }(UIImageView())
+    
+    lazy var toolButtonSettings: UIImageView = {
+        $0.tag = 6
+        $0.image = #imageLiteral(resourceName: "SettingsRegular")
+        setupApperance(for: $0)
+        setupTouch(for: $0)
+        return $0
+    }(UIImageView())
+    
+    lazy var toolButtonPDF: UIImageView = {
+        $0.tag = 7
+        $0.image = #imageLiteral(resourceName: "pdfRegular")
+        setupApperance(for: $0)
+        return $0
+    }(UIImageView())
+    
     
     
     lazy var dataSource: LeftPanelDataSource = {
@@ -120,6 +137,8 @@ final class LeftPanelView: UIView {
         self.addSubview(toolButtonGeozone)
         self.addSubview(toolButtonHand)
         self.addSubview(toolButtonCooment)
+        self.addSubview(toolButtonSettings)
+        self.addSubview(toolButtonPDF)
         
         toolButtonGlass.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -137,7 +156,7 @@ final class LeftPanelView: UIView {
         
         toolButtonGeozone.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(toolButtonPoint.snp.bottom).offset(16.0)
+            make.top.equalTo(toolButtonPoint.snp.bottom).offset(56.0)
             make.width.equalTo(48.0)
             make.height.equalTo(48.0)
         }
@@ -154,6 +173,20 @@ final class LeftPanelView: UIView {
             make.top.equalTo(toolButtonHand.snp.bottom).offset(16.0)
             make.width.equalTo(48.0)
             make.height.equalTo(48.0)
+        }
+        
+        toolButtonSettings.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(48.0)
+            make.height.equalTo(48.0)
+            make.bottom.equalTo(toolButtonPDF.snp.top).offset(-16.0)
+        }
+        
+        toolButtonPDF.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(48.0)
+            make.height.equalTo(48.0)
+            make.bottom.equalToSuperview().offset(-32.0)
         }
     }
     
@@ -190,6 +223,7 @@ final class LeftPanelView: UIView {
         case 3: break
         case 4: break
         case 5: break
+        case 6: delegate?.goToSettings()
         default: break
         }
     }

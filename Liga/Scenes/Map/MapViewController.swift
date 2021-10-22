@@ -128,15 +128,21 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     }
     
     func goToPointsList() {
-        searchForPointView?.isHidden = false
+        searchForPointView?.isHidden = !(searchForPointView?.isHidden ?? false)
         geoView?.isHidden = true
         leftPanel.didSelectedTool(with: 1)
     }
     
     func goToGeozones() {
-        searchForPointView?.isHidden = true
+        searchForPointView?.isHidden = !(searchForPointView?.isHidden ?? false)
         geoView?.isHidden = false
         leftPanel.didSelectedTool(with: 2)
+    }
+    
+    func goToSettings() {
+        let vc = WorkSpaceViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
     
 }
