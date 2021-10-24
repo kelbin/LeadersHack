@@ -10,10 +10,13 @@ import UIKit
 
 final class WorkZonesDataSource: RPCEngineBase {
     
+    // Элемент соответвующий модели
     override func cellView(for rpc: RPC, _ tableView: UITableView) -> UITableViewCell {
         switch rpc {
+        /// Ячейка  с карточкой геозоны
         case let model as WorkGeoZone:
             let cell = tableView.dequeueReusableCell(withIdentifier: WorkGeoZoneCell.reuseIdentifier) as! WorkGeoZoneCell
+            /// Конфигурируем юайные элементы ячейки модулью
             cell.configure(model)
             return cell
         default:
@@ -21,8 +24,10 @@ final class WorkZonesDataSource: RPCEngineBase {
         }
     }
     
+    // Высота элементы
     override func height(for rpc: RPC) -> CGFloat {
         switch rpc {
+            /// Ячейка  с карточкой геозоны
         case is WorkGeoZone:
             return 350
         default:
