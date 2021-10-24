@@ -10,4 +10,6 @@ struct WorkGeoZone: alphaRPC {
     let title: String
     let text: String?
     let key: String
+    let sport_points_count: Int
+    let sport_points_size: Double
 }

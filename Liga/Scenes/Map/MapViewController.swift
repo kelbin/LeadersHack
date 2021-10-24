@@ -10,11 +10,12 @@ import UIKit
 import MobileCoreServices
 import Combine
 
+protocol MapViewInput: AnyObject {
+    func updateMarkers(position: Location)
+}
 
 final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate, MapLayersCardViewDelegate {
-    
-    var googleMap: GoogleMap?
-    
+        
     enum Constants {
         static let leftPanelWidth: CGFloat = 100
     }
@@ -31,6 +32,7 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     }(MapLayersCardView())
     
     private lazy var lensView: MapLensCardView = {
+        $0.delegate = self
         return $0
     }(MapLensCardView())
 
@@ -111,7 +113,7 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         
         dragInteraction.isEnabled = true
         
-        leftPanel.toolButtonGlass.addInteraction(dragInteraction)
+        leftPanel.toolButtonGeozone.addInteraction(dragInteraction)
         googleMap?.mapView?.addInteraction(dropInteraction)
     }
     
@@ -149,7 +151,7 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     }
     
     func updateLayers(forDropLocation dropLocation: CGPoint) {
-        if leftPanel.toolButtonGlass.frame.contains(dropLocation) {
+        if leftPanel.toolButtonGeozone.frame.contains(dropLocation) {
             
         } else if view.frame.contains(dropLocation) {
             
@@ -242,7 +244,7 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
 
         let operation: UIDropOperation
 
-        if leftPanel.toolButtonGlass.frame.contains(dropLocation) {
+        if leftPanel.toolButtonGeozone.frame.contains(dropLocation) {
             operation = session.localDragSession == nil ? .copy : .move
         } else {
             operation = .cancel
@@ -266,7 +268,12 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
     func dragInteraction(_ interaction: UIDragInteraction, session: UIDragSession, didEndWith operation: UIDropOperation) {
         let dropLocation = session.location(in: view)
         let coordinate = googleMap?.mapView?.projection.coordinate(for: dropLocation)
-        googleMap?.addMarker(latitude: coordinate?.latitude ?? 0, and: coordinate?.longitude ?? 0, title: "Новая хуйня", snippet: "ТУТА БЛЯТЬ")
+        googleMap?.addMarker(latitude: coordinate?.latitude ?? 0,
+                             and: coordinate?.longitude ?? 0,
+                             title: "Поинт",
+                             snippet: "Поинт")
+        
+        
     }
     func dropInteraction(_ interaction: UIDropInteraction, concludeDrop session: UIDropSession) {
         print("concludeDrop")
@@ -276,13 +283,19 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
         session.loadObjects(ofClass: UIImage.self) { imageItems in
             let images = imageItems as! [UIImage]
 
-            self.leftPanel.toolButtonGlass.image = images.first
+            self.leftPanel.toolButtonGeozone.image = images.first
         }
 
         let dropLocation = session.location(in: view)
         updateLayers(forDropLocation: dropLocation)
         print("PERFORM DROP")
     }
+    
+}
+
+extension MapViewController: MapLensCardViewDelegate {
+    
+        
     
 }
 
@@ -293,11 +306,11 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        let projection = mapView.projection.visibleRegion()
-        
-        presenter.fetchPlaceMarks(boxCoordinate: BoxCoordintate(topLeftLongitude:
-                                                                projection.farLeft.longitude,
-                                                                topLeftLatitude: projection.farLeft.latitude, bottomRightLongitude: projection.nearRight.longitude, bottomRightLatitude: projection.nearRight.latitude))
+//        let projection = mapView.projection.visibleRegion()
+//
+//        presenter.fetchPlaceMarks(boxCoordinate: BoxCoordintate(topLeftLongitude:
+//                                                                projection.farLeft.longitude,
+//                                                                topLeftLatitude: projection.farLeft.latitude, bottomRightLongitude: projection.nearRight.longitude, bottomRightLatitude: projection.nearRight.latitude))
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
@@ -305,13 +318,13 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        markers.forEach { position in
-            if !self.isMarkerWithinScreen(marker: GMSMarker(position: CLLocationCoordinate2D(latitude: position.latitude, longitude: position.longitude))) {
-                
-                self.markers.removeAll(where: { $0.fullAdressString == $0.fullAdressString })
-                self.googleMap?.mapView?.clear()
-            }
-        }
+//        markers.forEach { position in
+//            if !self.isMarkerWithinScreen(marker: GMSMarker(position: CLLocationCoordinate2D(latitude: position.latitude, longitude: position.longitude))) {
+//
+//                self.markers.removeAll(where: { $0.fullAdressString == $0.fullAdressString })
+//                self.googleMap?.mapView?.clear()
+//            }
+//        }
 
     }
     
