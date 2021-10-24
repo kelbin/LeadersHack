@@ -77,9 +77,16 @@ final class WorkZonesViewController: SideController {
             self?.RPCController.reloadModel(model.map({ apiModel in
                                                 
                 let position = Position(latitude: apiModel.minLocation.latitude,
-                                        longitude: apiModel.minLocation.longitude)
-                
-                return WorkGeoZone(position: position, title: apiModel.name, text: nil, key: String(""), sport_points_count: apiModel.sport_points_count, sport_points_size: apiModel.sport_points_size)
+                                        longitude: apiModel.maxLocation.longitude)
+
+                return WorkGeoZone(position: position,
+                                   title: apiModel.name,
+                                   text: nil,
+                                   key: String(""),
+                                   sport_points_count: apiModel.sport_points_count,
+                                   sport_points_size: apiModel.sport_points_size,
+                                   population: apiModel.population,
+                                   sports_count: apiModel.sports_count)
                 
                 
             }))

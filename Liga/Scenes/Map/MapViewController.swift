@@ -88,8 +88,15 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
             self.googleMap?.redrawPoints(points.map({ GoogleMapPoint(location: CLLocationCoordinate2D(latitude: $0.location.latitude, longitude: $0.location.longitude), power: 0) }))
             //self.googleMap?.showGradientMapForZoom()
         }.store(in: &cancellable)
-
-
+        
+    }
+    
+    func getSportzonesBindings(completition: @escaping ([SportPointEntity]) -> ()) {
+        
+        globalInteractor.$sportPoints.sink { _ in
+        } receiveValue: { points in
+            completition(points)
+        }.store(in: &cancellable)
     }
     
     private var cancellable = Set<AnyCancellable>()
@@ -295,7 +302,23 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
 
 extension MapViewController: MapLensCardViewDelegate {
     
+    func didTapToRadioButton(title: String, selected: Bool) {
         
+        getSportzonesBindings { [weak self] points in
+            
+            let filteredPoints = points.filter({ points in
+                return points.sports.contains(title)
+            })
+            
+            let googleMapPoints = filteredPoints.map { point -> GoogleMapPoint in
+                let location = CLLocationCoordinate2D(latitude: point.location.latitude, longitude: point.location.longitude)
+                return GoogleMapPoint(location: location, power: nil)
+            }
+            
+            self?.googleMap?.redrawLensePoints(googleMapPoints, lenseType: [.small, .medium])
+        }
+        
+    }
     
 }
 

@@ -24,7 +24,7 @@ final class WorkZonesDataSource: RPCEngineBase {
     override func height(for rpc: RPC) -> CGFloat {
         switch rpc {
         case is WorkGeoZone:
-            return 250
+            return 350
         default:
             return super.height(for: rpc)
         }
