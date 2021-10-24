@@ -74,6 +74,8 @@ final class SportPointCell: UITableViewCell {
         }
     }
     
+    // MARK: - Setupable
+    
     func configure(_ model: alphaRPC) {
         pointTitleLabel.text = model.title
         pointAdressLabel.text = model.text ?? ""

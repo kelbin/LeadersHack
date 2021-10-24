@@ -26,6 +26,7 @@ class SideController: UIViewController {
         super.viewDidLoad()
         tableView.register(WorkGeoZoneCell.self, forCellReuseIdentifier: WorkGeoZoneCell.reuseIdentifier)
         tableView.register(SportPointCell.self, forCellReuseIdentifier: SportPointCell.reuseIdentifier)
+        tableView.register(TaxtSubtextCell.self, forCellReuseIdentifier: TaxtSubtextCell.reuseIdentifier)
         
         tableView.dataSource = RPCController
         tableView.delegate = RPCController
