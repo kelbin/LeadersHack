@@ -23,19 +23,7 @@ struct SportPointEntity {
     var sports: [String]
 }
 
-struct Location {
-    var longitude: Double
-    var latitude: Double
-    var fullAdressString: String?
-    
-    static var zero: Location {
-        return Location(longitude: 0, latitude: 0, fullAdressString: nil)
-    }
-}
-
+// MARK: - Codable
 
 extension SportPointEntity: Codable {}
-
-extension Location: Codable {}
-
 
