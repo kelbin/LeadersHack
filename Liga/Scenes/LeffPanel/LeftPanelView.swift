@@ -57,7 +57,7 @@ final class LeftPanelView: UIView {
     
     lazy var toolButtonHand: UIImageView = {
         $0.tag = 4
-        $0.image = #imageLiteral(resourceName: "HandRegular")
+        $0.image = #imageLiteral(resourceName: "handRegular")
         setupApperance(for: $0)
         //setupTouch(for: $0)
         return $0
@@ -107,7 +107,7 @@ final class LeftPanelView: UIView {
         toolButtonGlass.image = #imageLiteral(resourceName: "ZoomGlassRegular")
         toolButtonPoint.image = #imageLiteral(resourceName: "PointRegular")
         toolButtonGeozone.image = #imageLiteral(resourceName: "GeozoneRegular")
-        toolButtonHand.image = #imageLiteral(resourceName: "HandRegular")
+        toolButtonHand.image = #imageLiteral(resourceName: "handRegular")
         toolButtonCooment.image = #imageLiteral(resourceName: "CommentRegular")
         switch index {
         case 1: toolButtonGlass.image = #imageLiteral(resourceName: "ZoomGlassSelected")

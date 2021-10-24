@@ -11,6 +11,5 @@ import Foundation
 struct TextSubtext: alphaRPC {
     let title: String
     let text: String?
-    
     let key: String
 }

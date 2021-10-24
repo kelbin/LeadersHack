@@ -53,7 +53,6 @@ final class SportPointCell: UITableViewCell {
         }
         
         
-        
     }
     
     required init?(coder: NSCoder) {

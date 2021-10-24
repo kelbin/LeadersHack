@@ -77,8 +77,9 @@ final class SearchPointsViewController: SideController, ROCEngineProtocol {
     private func bindings() {
         ///  При изменении текущих рабочих спортивных точке, мы перезагружаем список спортивных точек
         presenter.$sportPoints.sink { [weak self] _points in
+            (self?.parent as? MapViewController)
             self?.RPCController.reloadModel(_points.map({ _apiModel in
-                SportPoint(title: _apiModel.name, text: _apiModel.location.fullAdressString ?? "", key: _apiModel._id)
+                SportPoint(position: Position(latitude: 0, longitude: 0), title: _apiModel.name, text: _apiModel.location.fullAdressString ?? "", key: _apiModel._id)
             }))
         }.store(in: &cancellable)
     }
