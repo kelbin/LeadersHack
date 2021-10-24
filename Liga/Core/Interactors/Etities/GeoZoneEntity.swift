@@ -17,3 +17,9 @@ struct GeoZoneEntity {
 }
 
 extension GeoZoneEntity: Codable {}
+
+extension GeoZoneEntity {
+    func mapFrame() -> BoxCoordintate {
+        return BoxCoordintate(topLeftLongitude: self.minLocation.longitude, topLeftLatitude: self.minLocation.latitude, bottomRightLongitude: self.maxLocation.longitude, bottomRightLatitude: self.maxLocation.latitude)
+    }
+}

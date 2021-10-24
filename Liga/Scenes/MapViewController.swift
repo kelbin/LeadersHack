@@ -8,8 +8,10 @@
 import GoogleMaps
 import UIKit
 import MobileCoreServices
+import Combine
 
-final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate {
+
+final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate, MapLayersCardViewDelegate {
     
     var googleMap: GoogleMap?
     
@@ -22,6 +24,11 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         $0.isUserInteractionEnabled = true
         return $0
     }(LeftPanelView(frame: .zero))
+    
+    private lazy var mapLayersView: MapLayersCardView = {
+        $0.delegate = self
+        return $0
+    }(MapLayersCardView())
     
     private lazy var lensView: MapLensCardView = {
         return $0
@@ -51,17 +58,37 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.showLeftPanel()
         }
+        bindings()
+        //googleMap?.setZoomingInteractionsState(enabled: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
     }
+    
+    func bindings() {
+        globalInteractor.$currentFrame.sink { _ in
+        } receiveValue: { coordintates in
+            let bounds = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: coordintates.topLeftLatitude, longitude: coordintates.topLeftLongitude), coordinate: CLLocationCoordinate2D(latitude: coordintates.bottomRightLatitude, longitude: coordintates.bottomRightLongitude))
+            self.googleMap?.focusOn(bounds: bounds)
+        }.store(in: &cancellable)
+        
+        globalInteractor.$sportPoints.sink { _ in
+        } receiveValue: { points in
+            self.googleMap?.redrawPoints(points.map({ GoogleMapPoint(location: CLLocationCoordinate2D(latitude: $0.location.latitude, longitude: $0.location.longitude), power: 0) }))
+            //self.googleMap?.showGradientMapForZoom()
+        }.store(in: &cancellable)
+
+
+    }
+    
+    private var cancellable = Set<AnyCancellable>()
     
     private func prepareMaps() {
         
         googleMap = GoogleMapImp(view: self.view,
                                  position: [Position(latitude: 55.748286, longitude: 37.622791)])
         
-        googleMap?.addMarker(latitude: 55.748286, and: 37.622791, title: "Тута", snippet: "Сдеся")
+        //googleMap?.addMarker(latitude: 55.748286, and: 37.622791, title: "Тута", snippet: "Сдеся")
         
         googleMap?.mapView?.delegate = self
     }
@@ -81,12 +108,20 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         
         view.addSubview(leftPanel)
         view.addSubview(lensView)
+        view.addSubview(mapLayersView)
         
         lensView.snp.makeConstraints { maker in
             maker.trailing.equalToSuperview().offset(-40.0)
-            maker.top.equalToSuperview().offset(48.0)
+            maker.top.equalToSuperview().offset(80.0)
             maker.width.equalTo(162.0)
             maker.height.equalTo(170.0)
+        }
+        
+        mapLayersView.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().offset(20.0)
+            maker.trailing.equalToSuperview().offset(-40.0)
+            maker.width.equalTo(96.0)
+            maker.height.equalTo(48.0)
         }
         
         leftPanel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: -Constants.leftPanelWidth).isActive = true
@@ -123,8 +158,8 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     }
     
     func goToGeozones() {
-        searchForPointView?.isHidden = !(searchForPointView?.isHidden ?? false)
-        geoView?.isHidden = false
+        geoView?.isHidden = !(geoView?.isHidden ?? false)
+        searchForPointView?.isHidden = true
         leftPanel.didSelectedTool(with: 2)
     }
     
@@ -132,6 +167,37 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         let vc = WorkSpaceViewController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
+    }
+    
+    func didTapedStyleButton() {
+        if styleEnabled {
+            styleEnabled = false
+            googleMap?.style(enabled: false)
+        } else {
+            googleMap?.style(enabled: true)
+            styleEnabled = true
+        }
+    }
+    
+    func didTapedLayerButton() {
+        if heatMapEnabled {
+            heatMapEnabled = false
+            googleMap?.setZoomingInteractionsState(enabled: true)
+            googleMap?.hideGradientMap()
+        } else {
+            heatMapEnabled = true
+            googleMap?.showGradientMapForZoom()
+            googleMap?.setZoomingInteractionsState(enabled: false)
+        }
+    }
+    
+    var styleEnabled: Bool = false {
+        didSet { mapLayersView.setStyleSelected(value: styleEnabled) }
+    }
+    
+    
+    var heatMapEnabled: Bool = false {
+        didSet { mapLayersView.setLayerSelected(value: heatMapEnabled) }
     }
     
 }
