@@ -297,14 +297,13 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
     
     func dragInteraction(_ interaction: UIDragInteraction, session: UIDragSession, didEndWith operation: UIDropOperation) {
         let dropLocation = session.location(in: view)
-        let coordinate = googleMap?.mapView?.projection.coordinate(for: dropLocation)
-        googleMap?.addMarker(latitude: coordinate?.latitude ?? 0,
-                             and: coordinate?.longitude ?? 0,
-                             title: "Поинт",
-                             snippet: "Поинт")
+       
+        guard let coordinate = googleMap?.mapView?.projection.coordinate(for: dropLocation) else { return }
         
+        googleMap?.addMarkerWithDrag(GoogleMapPoint(location: coordinate, power: nil), lenseType: [.small, .medium])
         
     }
+    
     func dropInteraction(_ interaction: UIDropInteraction, concludeDrop session: UIDropSession) {
         print("concludeDrop")
     }

@@ -27,6 +27,7 @@ protocol GoogleMap: AnyObject {
     func setZoomingInteractionsState(enabled: Bool)
     func redrawPoints(_ points: [GoogleMapPoint])
     func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [GoogleMapImp.LenseType])
+    func addMarkerWithDrag(_ point: GoogleMapPoint, lenseType: [GoogleMapImp.LenseType])
     func showGradientMapForZoom()
     func style(enabled: Bool)
     func hideGradientMap()
@@ -156,6 +157,23 @@ final class GoogleMapImp: GoogleMap {
                 circle.map = mapView
             }
         }
+    }
+    
+    func addMarkerWithDrag(_ point: GoogleMapPoint, lenseType: [LenseType]) {
+        
+        pointsModel.append(point)
+        
+        addMarker(latitude: point.location.latitude, and: point.location.longitude, title: "Спортивный объект", snippet: "")
+        
+        for i in lenseType {
+            
+            let circle = GMSCircle(position: point.location, radius: CLLocationDistance(i.metres))
+            circle.strokeColor = .white
+            circle.strokeWidth = 1
+            circle.fillColor = .blue.withAlphaComponent(CGFloat(i.alpha))
+            circle.map = mapView
+        }
+        
     }
     
     func marker() -> GMSMarker {
