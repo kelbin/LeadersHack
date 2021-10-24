@@ -27,6 +27,9 @@ final class WorkZonesViewController: SideController {
         
         RPCController = WorkZonesDataSource()
         presenter = WorkZonesPresenter()
+        
+        RPCController.delegate = presenter
+        
         bindings()
         super.viewDidLoad()
         presenter.viewDidLoad()

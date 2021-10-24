@@ -59,7 +59,7 @@ final class LeftPanelView: UIView {
         $0.tag = 4
         $0.image = #imageLiteral(resourceName: "HandRegular")
         setupApperance(for: $0)
-        setupTouch(for: $0)
+        //setupTouch(for: $0)
         return $0
     }(UIImageView())
     
@@ -84,8 +84,6 @@ final class LeftPanelView: UIView {
         setupApperance(for: $0)
         return $0
     }(UIImageView())
-    
-    
     
     lazy var dataSource: LeftPanelDataSource = {
         return $0
