@@ -363,7 +363,7 @@ python main.py
   
   POST
   
-### Request Bode
+### Request Body
   ```
   {
     "name": "Щукино",
