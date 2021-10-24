@@ -12,25 +12,28 @@ import Combine
 
 final class WorkZonesViewController: SideController {
     
+    // MARK: - Views
+    
     weak var serchBarHeader: SimpleSearchBarHeaderView?
+    
+    // MARK: - Arch
     
     var presenter: WorkZonesPresenter!
     
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
-        
-        let seacrhBarHeader = SimpleSearchBarHeaderView()
-        seacrhBarHeader.headerTitle = "Районы"
-        header = seacrhBarHeader
-        headerHeight = 154.0
-        
-        self.serchBarHeader = seacrhBarHeader
-        
-        RPCController = WorkZonesDataSource()
+        /// 2. Формируем модуль
         presenter = WorkZonesPresenter()
         
-        RPCController.delegate = presenter
         
+        /// 1.  Формируем UI
+        setupHeaderBar()
+        setupRPC()
+        
+        /// 3.  Формируем combine
         bindings()
+        
         super.viewDidLoad()
         presenter.viewDidLoad()
     }
@@ -49,6 +52,25 @@ final class WorkZonesViewController: SideController {
         super.viewDidDisappear(animated)
         presenter.viewDidDisappear()
     }
+    
+    // MARK: - Private
+    
+    private func setupHeaderBar() {
+        let seacrhBarHeader = SimpleSearchBarHeaderView()
+        seacrhBarHeader.headerTitle = "Районы"
+        header = seacrhBarHeader
+        headerHeight = 154.0
+        
+        self.serchBarHeader = seacrhBarHeader
+        
+    }
+    
+    private func setupRPC() {
+        RPCController = WorkZonesDataSource()
+        RPCController.delegate = presenter
+    }
+    
+    // MARK: - Combine
     
     private func bindings() {
         presenter.$geoZones.sink { [weak self] model in

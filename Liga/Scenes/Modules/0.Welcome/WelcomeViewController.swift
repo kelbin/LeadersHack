@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 import Combine
+import SnapKit
+
 
 final class WelcomeViewController: UIViewController {
+    
+    // MARK: - Views
     
     lazy private var welcomePlaceholder: UILabel = {
         $0.text = "Добро пожаловать"
@@ -23,29 +27,38 @@ final class WelcomeViewController: UIViewController {
         return $0.appereance(.primary)
     }(UIButton())
     
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         layout()
         GoButton.isHidden = true
+        
+        bindings()
+    }
+   
+    // MARK: - Combine
+    
+    func bindings() {
+        // Тянем начальную рабочую зону, и указываем интерактору какую юзать
         globalInteractor.$workZones.sink { _ in } receiveValue: { _model in
-            print(_model)
             if let first = _model.first {
-                print(first)
                 self.GoButton.isHidden = false
                 globalInteractor.setup(wokGeoSpace: first)
             }
         }.store(in: &cancellable)
-
-        
-        //globalInteractor.setup(workingFrame: box)
     }
     
-    private var cancellable = Set<AnyCancellable>()
+    // MARK: - Actions
     
     @objc func enter() {
         let vc = MapViewController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
+    
+    private var cancellable = Set<AnyCancellable>()
+    
+    // MARK: - Private UI
     
     private func layout() {
         view.addSubview(welcomePlaceholder)
