@@ -43,11 +43,11 @@
 - Настройки проекта в том числе набора линз стилей карты и тд
 - Создание собственных кастомных геозон
 
-![alt text](https://github.com/reability/MCHProject2021Mosru/blob/main/src/headers.png?raw=true)
+![alt text](https://github.com/kelbin/LeadersHack/blob/main/res/heatMap.png?raw=true)
 
 Приложение способно демонстрировать состояние спорта на каждом выбранном районе. Плейсмарки с зелеными кругами, показывают какие площади района охватываются спортивной инфрастуктура в "шаговой доступности". Тепловая карта демонстрирует степень распредленности спортивных зон по району. Линзы используются для отображение доступности каждого выбранного спорта в виде радиальных зон.
 
-![alt text](https://github.com/reability/MCHProject2021Mosru/blob/main/src/headers.png?raw=true)
+![alt text](https://github.com/kelbin/LeadersHack/blob/main/res/workZones.png?raw=true)
 
 Также приложение имеет фичу с геозонами. Приложение дает возможность работать с каждой геозоной по отдельности для удобства использования. Так рабочей зоной может быть целый округ СЗАО или район, например, Щукино. Карта отображает информацию только по выбранной геозоне
 
@@ -81,7 +81,7 @@ https://developers.google.com/maps/documentation/ios-sdk/overview
 
 При включении режима линз, приложение отображает только отфильтрованные точки по спорту, а также отображает круги доступности в 500 и 1000 метрах от каждой точки
 
-![alt text](https://github.com/reability/MCHProject2021Mosru/blob/main/src/headers.png?raw=true)
+![alt text](https://github.com/kelbin/LeadersHack/blob/main/res/lens.png?raw=true)
 
 ## Тепловая карта кластеров
 
@@ -90,14 +90,14 @@ https://developers.google.com/maps/documentation/ios-sdk/overview
 https://developers.google.com/maps/documentation/ios-sdk/utility/heatmap
 
 
-![alt text](https://github.com/reability/MCHProject2021Mosru/blob/main/src/headers.png?raw=true)
+![alt text](https://github.com/kelbin/LeadersHack/blob/main/res/heatMap.png)
 
 ## Список точек
 
 Список предоставленных точек был профильтрован и собран в базу с указанием всех видов спортивных услуг. Мобильное приложение указывает по каким координатам ему хотелось бы отобразить точки. После чего система присылает необходимую порцию данных, после чего они отображаются в списке и на карте
 
 
-![alt text](https://github.com/reability/MCHProject2021Mosru/blob/main/src/headers.png?raw=true)
+![alt text](https://github.com/kelbin/LeadersHack/blob/main/res/points.png?raw=true)
 
 ##  Предсказание необходимой площади для новой точке
 
