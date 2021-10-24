@@ -16,12 +16,11 @@ struct SportCategoryConfig {
 }
 
 
-final class PointInfoPresenter {
+final class PointInfoPresenter: ViewState {
     
     @Published var pointName: String = ""
     @Published var square: Int = 0
     
     @Published var location: Location = Location.zero
-    
     
 }

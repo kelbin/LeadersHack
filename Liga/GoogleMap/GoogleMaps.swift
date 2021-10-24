@@ -29,6 +29,7 @@ protocol GoogleMap: AnyObject {
     func showGradientMapForZoom()
     func style(enabled: Bool)
     func hideGradientMap()
+    func focusOn(point: CLLocationCoordinate2D)
     var mapView: GMSMapView? { get set }
 }
 
@@ -140,6 +141,16 @@ final class GoogleMapImp: GoogleMap {
         if let heatMap = self.heatmapLayer {
             self.heatmapLayer.map = nil
         }
+    }
+    
+    func focusOn(point: CLLocationCoordinate2D) {
+        let sydney = GMSCameraPosition.camera(
+            withLatitude: point.latitude,
+            longitude: point.longitude,
+            zoom: 16.0
+            //zoom: mapView?.camera.zoom ?? 20.0
+        )
+        mapView?.camera = sydney
     }
     
     

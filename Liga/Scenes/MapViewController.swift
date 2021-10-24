@@ -11,7 +11,7 @@ import MobileCoreServices
 import Combine
 
 
-final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate, MapLayersCardViewDelegate {
+final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDelegate, MapLayersCardViewDelegate, PointsCoordinator {
     
     var googleMap: GoogleMap?
     
@@ -36,6 +36,9 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     
     weak var geoView: UIView?
     weak var searchForPointView: UIView?
+    weak var infoView: UIView?
+    
+    weak var infoViewController: PointInfoViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +47,13 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         
         showGeozones()
         showSearchForPoint()
+        showInfo()
         
         prepareDragAndDrop()
         
         geoView?.isHidden = true
         searchForPointView?.isHidden = true
+        infoView?.isHidden = true
         
         self.view.bringSubviewToFront(leftPanel)
         
@@ -110,6 +115,8 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         view.addSubview(lensView)
         view.addSubview(mapLayersView)
         
+        
+        
         lensView.snp.makeConstraints { maker in
             maker.trailing.equalToSuperview().offset(-40.0)
             maker.top.equalToSuperview().offset(80.0)
@@ -154,12 +161,14 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
     func goToPointsList() {
         searchForPointView?.isHidden = !(searchForPointView?.isHidden ?? false)
         geoView?.isHidden = true
+        infoView?.isHidden = true
         leftPanel.didSelectedTool(with: 1)
     }
     
     func goToGeozones() {
         geoView?.isHidden = !(geoView?.isHidden ?? false)
         searchForPointView?.isHidden = true
+        infoView?.isHidden = true
         leftPanel.didSelectedTool(with: 2)
     }
     
@@ -168,6 +177,20 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
+    
+    func didGoToPoint(point: alphaRPC) {
+        searchForPointView?.isHidden = true
+        geoView?.isHidden = true
+        infoView?.isHidden = false
+        
+        if let selected = globalInteractor.sportPoints.first(where: { $0._id == point.key}) {
+            infoViewController?.inputSportPointModel = selected
+            googleMap?.hideGradientMap()
+            googleMap?.setZoomingInteractionsState(enabled: true)
+            googleMap?.focusOn(point: CLLocationCoordinate2D(latitude: selected.location.latitude, longitude: selected.location.longitude))
+        }
+    }
+
     
     func didTapedStyleButton() {
         if styleEnabled {
