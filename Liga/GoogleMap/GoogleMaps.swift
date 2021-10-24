@@ -22,11 +22,12 @@ struct GoogleMapPoint {
 protocol GoogleMap: AnyObject {
     func generateKey()
     func focusOn(bounds: GMSCoordinateBounds)
-    func addMarker(latitude: Double, and longitude: Double, title: String, snippet: String)
+    func addMarker(latitude: Double, and longitude: Double, title: String, snippet: String, isOther: Bool)
     func addCircle(markerPosition: Position, and radius: Double)
     func setZoomingInteractionsState(enabled: Bool)
     func redrawPoints(_ points: [GoogleMapPoint])
     func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [GoogleMapImp.LenseType])
+    func addMarkerWithDrag(_ point: GoogleMapPoint, lenseType: [GoogleMapImp.LenseType])
     func showGradientMapForZoom()
     func style(enabled: Bool)
     func hideGradientMap()
@@ -158,6 +159,23 @@ final class GoogleMapImp: GoogleMap {
         }
     }
     
+    func addMarkerWithDrag(_ point: GoogleMapPoint, lenseType: [LenseType]) {
+        
+        pointsModel.append(point)
+        
+        addMarker(latitude: point.location.latitude, and: point.location.longitude, title: "Спортивный объект", snippet: "", isOther: true)
+        
+        for i in lenseType {
+            
+            let circle = GMSCircle(position: point.location, radius: CLLocationDistance(i.metres))
+            circle.strokeColor = .red
+            circle.strokeWidth = 2
+            circle.fillColor = .clear
+            circle.map = mapView
+        }
+        
+    }
+    
     func marker() -> GMSMarker {
         let marker = GMSMarker()
         //marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -231,14 +249,21 @@ final class GoogleMapImp: GoogleMap {
     func addMarker(latitude: Double,
                    and longitude: Double,
                    title: String = "Default",
-                   snippet: String = "") {
+                   snippet: String = "",
+                   isOther: Bool = false) {
         
         let marker = GMSMarker()
         marker.appearAnimation = .pop
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = title
         marker.snippet = snippet
-        marker.icon = #imageLiteral(resourceName: "pinRed")
+        
+        if isOther {
+            marker.icon = #imageLiteral(resourceName: "image_2021-10-16_18-00-59")
+        } else {
+            marker.icon = #imageLiteral(resourceName: "pinRed")
+        }
+        
         marker.isDraggable = true
         marker.map = mapView
     }
