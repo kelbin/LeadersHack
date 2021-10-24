@@ -9,6 +9,7 @@ import Foundation
 
 
 struct GeoZoneEntity {
+    var _id: String
     var name: String
     var minLocation: Location
     var maxLocation: Location

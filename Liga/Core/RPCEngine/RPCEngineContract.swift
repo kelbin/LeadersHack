@@ -13,5 +13,4 @@ protocol alphaRPC: RPC {
     var title: String { get }
     var text: String? { get }
     var key: String { get }
-    var position: Position { get }
 }

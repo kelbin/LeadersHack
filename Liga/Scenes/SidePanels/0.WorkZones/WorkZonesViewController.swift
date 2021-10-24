@@ -82,7 +82,7 @@ final class WorkZonesViewController: SideController {
                 return WorkGeoZone(position: position,
                                    title: apiModel.name,
                                    text: nil,
-                                   key: String(""),
+                                   key: apiModel._id,
                                    sport_points_count: apiModel.sport_points_count,
                                    sport_points_size: apiModel.sport_points_size,
                                    population: apiModel.population,

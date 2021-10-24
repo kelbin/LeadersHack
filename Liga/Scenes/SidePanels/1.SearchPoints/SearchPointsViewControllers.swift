@@ -9,7 +9,12 @@ import Foundation
 import UIKit
 import Combine
 
-final class SearchPointsViewController: SideController {
+protocol PointsCoordinator: AnyObject {
+    func didGoToPoint(point: alphaRPC)
+}
+
+
+final class SearchPointsViewController: SideController, ROCEngineProtocol {
     
     // MARK: - Views
     
@@ -17,6 +22,7 @@ final class SearchPointsViewController: SideController {
     
     // MARK: - Arch
     
+    weak var coordinator: PointsCoordinator?
     var presenter: SearchPointsPresenter!
     
     // MARK: - View lifecycle
@@ -55,6 +61,15 @@ final class SearchPointsViewController: SideController {
     
     private func setupRPC() {
         RPCController = SearchForPointDataSource()
+        RPCController.delegate = self
+    }
+    
+    
+    // MARK: - ROCEngineProtocol
+    
+    func didSelected(model: RPC) {
+        guard let model = model as? alphaRPC else { return }
+        coordinator?.didGoToPoint(point: model)
     }
     
     // MARK: - Combine

@@ -34,6 +34,22 @@ extension MapViewController {
             make.width.equalTo(400.0)
         }
         searchForPointView = vc.view
+        
+        vc.coordinator = self
+    }
+    
+    func showInfo() {
+        let vc = PointInfoViewController()
+        
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
+        vc.view.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.width.equalTo(400.0)
+        }
+        infoViewController = vc
+        infoView = vc.view
     }
     
 }
