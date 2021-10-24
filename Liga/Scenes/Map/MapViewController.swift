@@ -336,7 +336,7 @@ extension MapViewController: MapLensCardViewDelegate {
                 return GoogleMapPoint(location: location, power: nil)
             }
             
-            self?.googleMap?.redrawLensePoints(googleMapPoints, lenseType: [.small, .medium])
+            self?.googleMap?.redrawLensePoints(googleMapPoints, lenseType: [.small, .medium], isSelected: selected)
         }
         
     }

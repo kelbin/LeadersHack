@@ -26,7 +26,7 @@ protocol GoogleMap: AnyObject {
     func addCircle(markerPosition: Position, and radius: Double)
     func setZoomingInteractionsState(enabled: Bool)
     func redrawPoints(_ points: [GoogleMapPoint])
-    func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [GoogleMapImp.LenseType])
+    func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [GoogleMapImp.LenseType], isSelected: Bool)
     func addMarkerWithDrag(_ point: GoogleMapPoint, lenseType: [GoogleMapImp.LenseType])
     func showGradientMapForZoom()
     func style(enabled: Bool)
@@ -42,6 +42,7 @@ final class GoogleMapImp: GoogleMap {
     var position: Position?
         
     var pointsModel: [GoogleMapPoint] = []
+    var initialPointsModel: [GoogleMapPoint] = []
     
     var lenseType: LenseType = .small
     
@@ -127,6 +128,7 @@ final class GoogleMapImp: GoogleMap {
         mapView?.clear()
         
         pointsModel = points
+        initialPointsModel = points
         
         points.forEach { _point in
             let marker = marker()
@@ -140,8 +142,15 @@ final class GoogleMapImp: GoogleMap {
         }
     }
     
-    func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [LenseType]) {
+    func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [LenseType], isSelected: Bool) {
+        
         mapView?.clear()
+        
+        guard isSelected else {
+            pointsModel = initialPointsModel
+            redrawPoints(pointsModel)
+            return
+        }
         
         pointsModel = points
         
@@ -186,8 +195,6 @@ final class GoogleMapImp: GoogleMap {
         marker.map = mapView
         return marker
     }
-    
-    
     
     func setZoomingInteractionsState(enabled: Bool) {
         mapView?.settings.zoomGestures = enabled
