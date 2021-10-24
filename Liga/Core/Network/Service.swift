@@ -23,6 +23,8 @@ class BasicService<Target: EndPoint> {
         let request = URLRequest(url: target.URLPath)
         
         print(request.url ?? "")
+        print(request.httpMethod)
+        print(request)
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .map({
