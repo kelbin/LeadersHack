@@ -136,7 +136,6 @@ final class MapViewController: UIViewController, LeftPanelDelegate, ToolbarDeleg
         view.addSubview(mapLayersView)
         
         
-        
         lensView.snp.makeConstraints { maker in
             maker.trailing.equalToSuperview().offset(-40.0)
             maker.top.equalToSuperview().offset(80.0)
@@ -300,7 +299,7 @@ extension MapViewController: UIDragInteractionDelegate, UIDropInteractionDelegat
        
         guard let coordinate = googleMap?.mapView?.projection.coordinate(for: dropLocation) else { return }
         
-        googleMap?.addMarkerWithDrag(GoogleMapPoint(location: coordinate, power: nil), lenseType: [.small, .medium])
+        googleMap?.addMarkerWithDrag(GoogleMapPoint(location: coordinate, power: nil), lenseType: [.small])
         
     }
     
@@ -388,7 +387,7 @@ extension MapViewController: MapViewInput {
             if !isExist {
                 
                 self.markers.append(position)
-                self.googleMap?.addMarker(latitude: position.latitude, and: position.longitude, title: position.fullAdressString ?? "", snippet: "")
+                self.googleMap?.addMarker(latitude: position.latitude, and: position.longitude, title: position.fullAdressString ?? "", snippet: "", isOther: false)
             }
         }
     }

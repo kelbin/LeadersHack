@@ -22,7 +22,7 @@ struct GoogleMapPoint {
 protocol GoogleMap: AnyObject {
     func generateKey()
     func focusOn(bounds: GMSCoordinateBounds)
-    func addMarker(latitude: Double, and longitude: Double, title: String, snippet: String)
+    func addMarker(latitude: Double, and longitude: Double, title: String, snippet: String, isOther: Bool)
     func addCircle(markerPosition: Position, and radius: Double)
     func setZoomingInteractionsState(enabled: Bool)
     func redrawPoints(_ points: [GoogleMapPoint])
@@ -163,14 +163,14 @@ final class GoogleMapImp: GoogleMap {
         
         pointsModel.append(point)
         
-        addMarker(latitude: point.location.latitude, and: point.location.longitude, title: "Спортивный объект", snippet: "")
+        addMarker(latitude: point.location.latitude, and: point.location.longitude, title: "Спортивный объект", snippet: "", isOther: true)
         
         for i in lenseType {
             
             let circle = GMSCircle(position: point.location, radius: CLLocationDistance(i.metres))
-            circle.strokeColor = .white
-            circle.strokeWidth = 1
-            circle.fillColor = .blue.withAlphaComponent(CGFloat(i.alpha))
+            circle.strokeColor = .red
+            circle.strokeWidth = 2
+            circle.fillColor = .clear
             circle.map = mapView
         }
         
@@ -249,14 +249,21 @@ final class GoogleMapImp: GoogleMap {
     func addMarker(latitude: Double,
                    and longitude: Double,
                    title: String = "Default",
-                   snippet: String = "") {
+                   snippet: String = "",
+                   isOther: Bool = false) {
         
         let marker = GMSMarker()
         marker.appearAnimation = .pop
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = title
         marker.snippet = snippet
-        marker.icon = #imageLiteral(resourceName: "pinRed")
+        
+        if isOther {
+            marker.icon = #imageLiteral(resourceName: "image_2021-10-16_18-00-59")
+        } else {
+            marker.icon = #imageLiteral(resourceName: "pinRed")
+        }
+        
         marker.isDraggable = true
         marker.map = mapView
     }
