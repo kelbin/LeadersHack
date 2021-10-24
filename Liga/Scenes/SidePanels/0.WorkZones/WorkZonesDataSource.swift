@@ -29,7 +29,7 @@ final class WorkZonesDataSource: RPCEngineBase {
         switch rpc {
             /// Ячейка  с карточкой геозоны
         case is WorkGeoZone:
-            return 150.0
+            return 350
         default:
             return super.height(for: rpc)
         }

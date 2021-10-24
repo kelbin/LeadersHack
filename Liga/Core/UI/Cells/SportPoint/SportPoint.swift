@@ -8,8 +8,8 @@
 import Foundation
 
 struct SportPoint: alphaRPC {
+    var position: Position
     var title: String
     var text: String?
-    
     var key: String
 }

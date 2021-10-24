@@ -26,6 +26,7 @@ protocol GoogleMap: AnyObject {
     func addCircle(markerPosition: Position, and radius: Double)
     func setZoomingInteractionsState(enabled: Bool)
     func redrawPoints(_ points: [GoogleMapPoint])
+    func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [GoogleMapImp.LenseType])
     func showGradientMapForZoom()
     func style(enabled: Bool)
     func hideGradientMap()
@@ -38,10 +39,49 @@ final class GoogleMapImp: GoogleMap {
     var mapView: GMSMapView?
     var heatmapLayer: GMUHeatmapTileLayer!
     var position: Position?
-    
-    //
-    
+        
     var pointsModel: [GoogleMapPoint] = []
+    
+    var lenseType: LenseType = .small
+    
+    enum LenseType: Int {
+        
+        case small = 1
+        case medium = 2
+        case large = 3
+        case overLarge = 4
+        
+        var metres: Int {
+            
+            switch self {
+            case .small:
+                return 500
+            case .medium:
+                return 1000
+            case .large:
+                return 3000
+            case .overLarge:
+                return 5000
+            }
+            
+        }
+        
+        var alpha: Double {
+            
+            switch self {
+            case .small:
+                return 0.8
+            case .medium:
+                return 0.6
+            case .large:
+                return 0.4
+            case .overLarge:
+                return 0.2
+            }
+            
+        }
+        
+    }
     
     enum Const {
         static let provideKey: String = "AIzaSyDYErovCxubBuqZt3ZQjHlGTb33be-LBJg"
@@ -50,9 +90,10 @@ final class GoogleMapImp: GoogleMap {
     init(view: UIView, position: [Position]) {
         let camera = GMSCameraPosition.camera(withLatitude: position[0].latitude,
                                               longitude: position[0].longitude,
-                                              zoom: 12)
+                                              zoom: 30)
         mapView = GMSMapView.map(withFrame: view.frame, camera: camera)
         
+        mapView?.isMyLocationEnabled = true
         mapView?.settings.myLocationButton = true
         
         //initHeatMap()
@@ -95,6 +136,25 @@ final class GoogleMapImp: GoogleMap {
             circle.strokeWidth = 2.0
             circle.fillColor = .clear
             circle.map = mapView
+        }
+    }
+    
+    func redrawLensePoints(_ points: [GoogleMapPoint], lenseType: [LenseType]) {
+        mapView?.clear()
+        
+        pointsModel = points
+        
+        points.forEach { _point in
+            let marker = marker()
+            marker.position = _point.location
+            
+            for i in lenseType {
+                let circle = GMSCircle(position: _point.location, radius: CLLocationDistance(i.metres))
+                circle.strokeColor = .white
+                circle.strokeWidth = 1
+                circle.fillColor = .blue.withAlphaComponent(CGFloat(i.alpha))
+                circle.map = mapView
+            }
         }
     }
     
@@ -174,6 +234,7 @@ final class GoogleMapImp: GoogleMap {
                    snippet: String = "") {
         
         let marker = GMSMarker()
+        marker.appearAnimation = .pop
         marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         marker.title = title
         marker.snippet = snippet
