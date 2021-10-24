@@ -29,7 +29,7 @@ let globalInteractor = GeoInteractor()
 
 final class GeoInteractor {
     
-    var service: SportPointsSerice = SportPointsSerice()
+    var service: SportPointsSericeImp = SportPointsSericeImp()
     var workService: GeoZoneServiceImp = GeoZoneServiceImp()
     
     @Published var sportPoints: [SportPointEntity] = []
@@ -45,7 +45,6 @@ final class GeoInteractor {
     func setup(wokGeoSpace: GeoZoneEntity) {
         currentSpace = wokGeoSpace
         currentFrame = wokGeoSpace.mapFrame()
-        //currentFrame = BoxCoordintate(topLeftLongitude: wokGeoSpace.minLocation.longitude, topLeftLatitude: wokGeoSpace.minLocation.latitude, bottomRightLongitude: wokGeoSpace.maxLocation.longitude, bottomRightLatitude: wokGeoSpace.maxLocation.latitude)
         sportsBindings()
     }
     
