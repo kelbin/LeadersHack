@@ -38,7 +38,6 @@
 		2D2B71B02725C52D0024564D /* TextSubtext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B71AF2725C52D0024564D /* TextSubtext.swift */; };
 		2D2B71B32725CEF60024564D /* SimpletextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B71B22725CEF60024564D /* SimpletextHeader.swift */; };
 		2D86656E27220D7B00BC451E /* MapLensCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86656D27220D7B00BC451E /* MapLensCardView.swift */; };
-		2D86657127221D0C00BC451E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86657027221D0C00BC451E /* WelcomeViewController.swift */; };
 		2D86657327221ED600BC451E /* Appereance+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86657227221ED600BC451E /* Appereance+UIButton.swift */; };
 		2DA9DBF0271E303200764BEA /* RPCEngineContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBEF271E303200764BEA /* RPCEngineContract.swift */; };
 		2DA9DBF2271E304900764BEA /* RPCEngineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA9DBF1271E304900764BEA /* RPCEngineBase.swift */; };
@@ -60,8 +59,6 @@
 		2DF85F6F2721CC9D00C17C72 /* SportPointsServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F6E2721CC9D00C17C72 /* SportPointsServiceImp.swift */; };
 		2DF85F722721E7B000C17C72 /* NewWorkZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F712721E7B000C17C72 /* NewWorkZoneViewController.swift */; };
 		2DF85F752721E84F00C17C72 /* SearchWorkZoneHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F742721E84F00C17C72 /* SearchWorkZoneHeader.swift */; };
-		2DF85F782721EF0300C17C72 /* WorkSpaceSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F772721EF0300C17C72 /* WorkSpaceSettingsViewController.swift */; };
-		2DF85F7A2721EF1500C17C72 /* WorkSpaceSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F792721EF1500C17C72 /* WorkSpaceSettingsPresenter.swift */; };
 		2DF85F7D2721F33800C17C72 /* RadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF85F7C2721F33800C17C72 /* RadioButtonView.swift */; };
 		52D9C9F19A775DA377350CE0 /* Pods_Liga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9A01BF7154990CBF8F17DA /* Pods_Liga.framework */; };
 		BC32480C271B1BC200B6EC1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC707A30271AD54000233AD4 /* Main.storyboard */; };
@@ -72,6 +69,11 @@
 		BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC324816271B428F00B6EC1B /* Ext+UITableViewCell.swift */; };
 		BC32481A271B489300B6EC1B /* DragImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC324819271B489300B6EC1B /* DragImageCell.swift */; };
 		BC32481C271B73B900B6EC1B /* heats.json in Resources */ = {isa = PBXBuildFile; fileRef = BC32481B271B73B900B6EC1B /* heats.json */; };
+		BC5FDBC627221EFC00D44659 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBC527221EFC00D44659 /* MapPresenter.swift */; };
+		BC5FDBC92722282A00D44659 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBC82722282A00D44659 /* Throttler.swift */; };
+		BC5FDBCF2725C85F00D44659 /* WorkSpaceSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBCB2725C85F00D44659 /* WorkSpaceSettingsPresenter.swift */; };
+		BC5FDBD02725C85F00D44659 /* WorkSpaceSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBCC2725C85F00D44659 /* WorkSpaceSettingsViewController.swift */; };
+		BC5FDBD12725C85F00D44659 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5FDBCE2725C85F00D44659 /* WelcomeViewController.swift */; };
 		BC707A2B271AD54000233AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A2A271AD54000233AD4 /* AppDelegate.swift */; };
 		BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A2E271AD54000233AD4 /* MapViewController.swift */; };
 		BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC707A3E271AD63B00233AD4 /* GoogleMaps.swift */; };
@@ -109,7 +111,6 @@
 		2D2B71AF2725C52D0024564D /* TextSubtext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSubtext.swift; sourceTree = "<group>"; };
 		2D2B71B22725CEF60024564D /* SimpletextHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpletextHeader.swift; sourceTree = "<group>"; };
 		2D86656D27220D7B00BC451E /* MapLensCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLensCardView.swift; sourceTree = "<group>"; };
-		2D86657027221D0C00BC451E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2D86657227221ED600BC451E /* Appereance+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appereance+UIButton.swift"; sourceTree = "<group>"; };
 		2DA9DBEF271E303200764BEA /* RPCEngineContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCEngineContract.swift; sourceTree = "<group>"; };
 		2DA9DBF1271E304900764BEA /* RPCEngineBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCEngineBase.swift; sourceTree = "<group>"; };
@@ -131,8 +132,6 @@
 		2DF85F6E2721CC9D00C17C72 /* SportPointsServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPointsServiceImp.swift; sourceTree = "<group>"; };
 		2DF85F712721E7B000C17C72 /* NewWorkZoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkZoneViewController.swift; sourceTree = "<group>"; };
 		2DF85F742721E84F00C17C72 /* SearchWorkZoneHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkZoneHeader.swift; sourceTree = "<group>"; };
-		2DF85F772721EF0300C17C72 /* WorkSpaceSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceSettingsViewController.swift; sourceTree = "<group>"; };
-		2DF85F792721EF1500C17C72 /* WorkSpaceSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkSpaceSettingsPresenter.swift; sourceTree = "<group>"; };
 		2DF85F7C2721F33800C17C72 /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
 		6BE03787328259AA0E889B3D /* Pods-Liga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liga.debug.xcconfig"; path = "Target Support Files/Pods-Liga/Pods-Liga.debug.xcconfig"; sourceTree = "<group>"; };
 		8690BE362E6C73D87DF8E66D /* Pods-Liga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liga.release.xcconfig"; path = "Target Support Files/Pods-Liga/Pods-Liga.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +140,11 @@
 		BC324816271B428F00B6EC1B /* Ext+UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UITableViewCell.swift"; sourceTree = "<group>"; };
 		BC324819271B489300B6EC1B /* DragImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragImageCell.swift; sourceTree = "<group>"; };
 		BC32481B271B73B900B6EC1B /* heats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = heats.json; sourceTree = "<group>"; };
+		BC5FDBC527221EFC00D44659 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		BC5FDBC82722282A00D44659 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
+		BC5FDBCB2725C85F00D44659 /* WorkSpaceSettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpaceSettingsPresenter.swift; sourceTree = "<group>"; };
+		BC5FDBCC2725C85F00D44659 /* WorkSpaceSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSpaceSettingsViewController.swift; sourceTree = "<group>"; };
+		BC5FDBCE2725C85F00D44659 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BC707A27271AD54000233AD4 /* Liga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC707A2A271AD54000233AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC707A2E271AD54000233AD4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -320,8 +324,8 @@
 		2D2B71A32725A1760024564D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2D86656F27221CFC00BC451E /* 0.Welcome */,
-				2DF85F762721EEDD00C17C72 /* 1.Settings */,
+				BC5FDBCD2725C85F00D44659 /* 0.Welcome */,
+				BC5FDBCA2725C85F00D44659 /* 1.Settings */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 		2DAA59B4271EF98400ECC994 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BC5FDBC72722280600D44659 /* Throttler */,
 				2D0177192721BDFB00E7886C /* Components */,
 				2D0177132721BBB700E7886C /* Views */,
 				2D01770127217F6000E7886C /* Assets */,
@@ -489,15 +494,6 @@
 			path = SearchWorkZoneHeader;
 			sourceTree = "<group>";
 		};
-		2DF85F762721EEDD00C17C72 /* 1.Settings */ = {
-			isa = PBXGroup;
-			children = (
-				2DF85F772721EF0300C17C72 /* WorkSpaceSettingsViewController.swift */,
-				2DF85F792721EF1500C17C72 /* WorkSpaceSettingsPresenter.swift */,
-			);
-			path = 1.Settings;
-			sourceTree = "<group>";
-		};
 		2DF85F7B2721F2C600C17C72 /* MapLensCardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +539,41 @@
 				BC324819271B489300B6EC1B /* DragImageCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BC5FDBC327221EDE00D44659 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BC707A2E271AD54000233AD4 /* MapViewController.swift */,
+				2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */,
+				BC5FDBC527221EFC00D44659 /* MapPresenter.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		BC5FDBC72722280600D44659 /* Throttler */ = {
+			isa = PBXGroup;
+			children = (
+				BC5FDBC82722282A00D44659 /* Throttler.swift */,
+			);
+			path = Throttler;
+			sourceTree = "<group>";
+		};
+		BC5FDBCA2725C85F00D44659 /* 1.Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BC5FDBCB2725C85F00D44659 /* WorkSpaceSettingsPresenter.swift */,
+				BC5FDBCC2725C85F00D44659 /* WorkSpaceSettingsViewController.swift */,
+			);
+			path = 1.Settings;
+			sourceTree = "<group>";
+		};
+		BC5FDBCD2725C85F00D44659 /* 0.Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				BC5FDBCE2725C85F00D44659 /* WelcomeViewController.swift */,
+			);
+			path = 0.Welcome;
 			sourceTree = "<group>";
 		};
 		BC707A1E271AD54000233AD4 = {
@@ -598,13 +629,12 @@
 		BC707A42271AD65600233AD4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BC5FDBC327221EDE00D44659 /* Map */,
 				2D2B71A32725A1760024564D /* Modules */,
 				2D2B71A22725A15F0024564D /* SidePanels */,
 				2DF85F702721E79E00C17C72 /* NewWorkZone */,
 				BC324810271B401E00B6EC1B /* LeffPanel */,
 				BC707A30271AD54000233AD4 /* Main.storyboard */,
-				BC707A2E271AD54000233AD4 /* MapViewController.swift */,
-				2DAA59D3271F10DF00ECC994 /* MapViewController+GeoZones.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -762,6 +792,7 @@
 				BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */,
 				BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */,
 				2D01771B2721BE0600E7886C /* AppTextField.swift in Sources */,
+				BC5FDBC627221EFC00D44659 /* MapPresenter.swift in Sources */,
 				BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */,
 				2DAA59BB271EF9D100ECC994 /* WorkGeoZoneCell.swift in Sources */,
 				BC324815271B407C00B6EC1B /* Core.swift in Sources */,
@@ -769,15 +800,16 @@
 				2DAA59B3271EF75100ECC994 /* WorkZonesViewController.swift in Sources */,
 				2DAA59D4271F10DF00ECC994 /* MapViewController+GeoZones.swift in Sources */,
 				2DAA59D9271F9DE600ECC994 /* PointInfoPresenter.swift in Sources */,
+				BC5FDBD02725C85F00D44659 /* WorkSpaceSettingsViewController.swift in Sources */,
 				2DF85F722721E7B000C17C72 /* NewWorkZoneViewController.swift in Sources */,
 				2D2B71B32725CEF60024564D /* SimpletextHeader.swift in Sources */,
 				2D86657127221D0C00BC451E /* WelcomeViewController.swift in Sources */,
 				2DAA59D2271F072D00ECC994 /* ViewState.swift in Sources */,
+				BC5FDBD12725C85F00D44659 /* WelcomeViewController.swift in Sources */,
 				2D0176FD2721797E00E7886C /* SearchPointsPresenter.swift in Sources */,
 				2D2B718A272445D10024564D /* Service.swift in Sources */,
 				2D017712272187E200E7886C /* SportPoint.swift in Sources */,
 				2D2B7191272449E80024564D /* GeoZoneTarget.swift in Sources */,
-				2DF85F7A2721EF1500C17C72 /* WorkSpaceSettingsPresenter.swift in Sources */,
 				2DA9DBF0271E303200764BEA /* RPCEngineContract.swift in Sources */,
 				2D2B719C27259F700024564D /* Location.swift in Sources */,
 				2DA9DBF5271E3A6700764BEA /* SideController.swift in Sources */,
@@ -790,8 +822,9 @@
 				2D0177182721BCFF00E7886C /* Appereance+UITextField.swift in Sources */,
 				2D2B71B02725C52D0024564D /* TextSubtext.swift in Sources */,
 				BC707A2B271AD54000233AD4 /* AppDelegate.swift in Sources */,
-				2DF85F782721EF0300C17C72 /* WorkSpaceSettingsViewController.swift in Sources */,
+				BC5FDBC92722282A00D44659 /* Throttler.swift in Sources */,
 				2DF85F752721E84F00C17C72 /* SearchWorkZoneHeader.swift in Sources */,
+				BC5FDBCF2725C85F00D44659 /* WorkSpaceSettingsPresenter.swift in Sources */,
 				2D86656E27220D7B00BC451E /* MapLensCardView.swift in Sources */,
 				2D2B719F27259FC60024564D /* SportPointsService.swift in Sources */,
 				2D2B71AB2725BDD90024564D /* PointInfoDataSource.swift in Sources */,

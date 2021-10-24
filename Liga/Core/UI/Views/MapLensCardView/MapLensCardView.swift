@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+protocol MapLensCardViewDelegate: AnyObject {
+    func didTapToRadioButton(title: String, selected: Bool)
+}
 
 final class MapLensCardView: UIView, RadioButtonViewDelegate {
     
@@ -44,6 +47,8 @@ final class MapLensCardView: UIView, RadioButtonViewDelegate {
         return $0
     }(RadioButtonView())
     
+    weak var delegate: MapLensCardViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -67,6 +72,7 @@ final class MapLensCardView: UIView, RadioButtonViewDelegate {
     func radioWasSelected(title: String, selected: Bool) {
         radioButtons.forEach { _radio in
             if _radio.value == title {
+                delegate?.didTapToRadioButton(title: _radio.value, selected: selected)
                 _radio.selected = selected
             } else {
                 _radio.selected = false
