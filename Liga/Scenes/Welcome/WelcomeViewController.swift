@@ -59,6 +59,7 @@ final class WelcomeViewController: UIViewController {
             maker.top.equalTo(welcomePlaceholder.snp.bottom).offset(140.0)
             maker.height.equalTo(44.0)
             maker.width.equalTo(142.0)
+            maker.centerX.equalToSuperview()
         }
         
     }

@@ -21,6 +21,13 @@
 		2D0177162721BBE300E7886C /* SearchSportHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0177152721BBE300E7886C /* SearchSportHeader.swift */; };
 		2D0177182721BCFF00E7886C /* Appereance+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0177172721BCFF00E7886C /* Appereance+UITextField.swift */; };
 		2D01771B2721BE0600E7886C /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01771A2721BE0600E7886C /* AppTextField.swift */; };
+		2D2B718727239D7C0024564D /* MapLayersCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B718627239D7C0024564D /* MapLayersCardView.swift */; };
+		2D2B718A272445D10024564D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B7189272445D10024564D /* Service.swift */; };
+		2D2B718C272445DA0024564D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B718B272445DA0024564D /* Endpoint.swift */; };
+		2D2B718F272449210024564D /* BaseTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B718E272449210024564D /* BaseTarget.swift */; };
+		2D2B7191272449E80024564D /* GeoZoneTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B7190272449E80024564D /* GeoZoneTarget.swift */; };
+		2D2B7194272456410024564D /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B7193272456410024564D /* Ext+String.swift */; };
+		2D2B719627249B1A0024564D /* SportPointsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B719527249B1A0024564D /* SportPointsTarget.swift */; };
 		2D86656E27220D7B00BC451E /* MapLensCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86656D27220D7B00BC451E /* MapLensCardView.swift */; };
 		2D86657127221D0C00BC451E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86657027221D0C00BC451E /* WelcomeViewController.swift */; };
 		2D86657327221ED600BC451E /* Appereance+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D86657227221ED600BC451E /* Appereance+UIButton.swift */; };
@@ -80,6 +87,13 @@
 		2D0177152721BBE300E7886C /* SearchSportHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSportHeader.swift; sourceTree = "<group>"; };
 		2D0177172721BCFF00E7886C /* Appereance+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appereance+UITextField.swift"; sourceTree = "<group>"; };
 		2D01771A2721BE0600E7886C /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		2D2B718627239D7C0024564D /* MapLayersCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayersCardView.swift; sourceTree = "<group>"; };
+		2D2B7189272445D10024564D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2D2B718B272445DA0024564D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2D2B718E272449210024564D /* BaseTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTarget.swift; sourceTree = "<group>"; };
+		2D2B7190272449E80024564D /* GeoZoneTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoZoneTarget.swift; sourceTree = "<group>"; };
+		2D2B7193272456410024564D /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
+		2D2B719527249B1A0024564D /* SportPointsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPointsTarget.swift; sourceTree = "<group>"; };
 		2D86656D27220D7B00BC451E /* MapLensCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLensCardView.swift; sourceTree = "<group>"; };
 		2D86657027221D0C00BC451E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2D86657227221ED600BC451E /* Appereance+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appereance+UIButton.swift"; sourceTree = "<group>"; };
@@ -182,6 +196,7 @@
 		2D0177132721BBB700E7886C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D2B718527239D5E0024564D /* MapLayers */,
 				2DF85F7B2721F2C600C17C72 /* MapLensCardView */,
 				2DF85F732721E83500C17C72 /* SearchWorkZoneHeader */,
 				2D0177142721BBBF00E7886C /* SearchSportHeader */,
@@ -204,6 +219,40 @@
 				2D01771A2721BE0600E7886C /* AppTextField.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		2D2B718527239D5E0024564D /* MapLayers */ = {
+			isa = PBXGroup;
+			children = (
+				2D2B718627239D7C0024564D /* MapLayersCardView.swift */,
+			);
+			path = MapLayers;
+			sourceTree = "<group>";
+		};
+		2D2B7188272445C20024564D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2D2B7189272445D10024564D /* Service.swift */,
+				2D2B718B272445DA0024564D /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2D2B718D272449130024564D /* Terget */ = {
+			isa = PBXGroup;
+			children = (
+				2D2B718E272449210024564D /* BaseTarget.swift */,
+				2D2B7190272449E80024564D /* GeoZoneTarget.swift */,
+			);
+			path = Terget;
+			sourceTree = "<group>";
+		};
+		2D2B71922724562E0024564D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2D2B7193272456410024564D /* Ext+String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2D86656F27221CFC00BC451E /* Welcome */ = {
@@ -294,6 +343,7 @@
 		2DAA59C3271F05AD00ECC994 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				2D2B718D272449130024564D /* Terget */,
 				2DF85F692721CA2800C17C72 /* Interactors */,
 				2DAA59CC271F06BB00ECC994 /* Etities */,
 				2DAA59C9271F066800ECC994 /* DataStore */,
@@ -308,6 +358,7 @@
 			children = (
 				2DAA59C7271F064300ECC994 /* WorkGeoZonesService.swift */,
 				2DF85F6E2721CC9D00C17C72 /* SportPointsService.swift */,
+				2D2B719527249B1A0024564D /* SportPointsTarget.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -407,6 +458,8 @@
 		BC324813271B407200B6EC1B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2D2B71922724562E0024564D /* Extensions */,
+				2D2B7188272445C20024564D /* Network */,
 				2DAA59CF271F071300ECC994 /* Protocols */,
 				2DAA59C3271F05AD00ECC994 /* Interactors */,
 				2DAA59B4271EF98400ECC994 /* UI */,
@@ -658,6 +711,7 @@
 				BC324812271B402F00B6EC1B /* LeftPanelView.swift in Sources */,
 				2DF85F6F2721CC9D00C17C72 /* SportPointsService.swift in Sources */,
 				2DAA59C5271F05C900ECC994 /* WorkZoneRepository.swift in Sources */,
+				2D2B718727239D7C0024564D /* MapLayersCardView.swift in Sources */,
 				BC707A3F271AD63B00233AD4 /* GoogleMaps.swift in Sources */,
 				BC707A2F271AD54000233AD4 /* MapViewController.swift in Sources */,
 				2D01771B2721BE0600E7886C /* AppTextField.swift in Sources */,
@@ -665,6 +719,7 @@
 				BC324817271B428F00B6EC1B /* Ext+UITableViewCell.swift in Sources */,
 				2DAA59BB271EF9D100ECC994 /* WorkGeoZoneCell.swift in Sources */,
 				BC324815271B407C00B6EC1B /* Core.swift in Sources */,
+				2D2B718C272445DA0024564D /* Endpoint.swift in Sources */,
 				2DAA59B3271EF75100ECC994 /* WorkZonesViewController.swift in Sources */,
 				2DAA59D4271F10DF00ECC994 /* MapViewController+GeoZones.swift in Sources */,
 				2DAA59D9271F9DE600ECC994 /* PointInfoPresenter.swift in Sources */,
@@ -672,12 +727,15 @@
 				2D86657127221D0C00BC451E /* WelcomeViewController.swift in Sources */,
 				2DAA59D2271F072D00ECC994 /* ViewState.swift in Sources */,
 				2D0176FD2721797E00E7886C /* SearchPointsPresenter.swift in Sources */,
+				2D2B718A272445D10024564D /* Service.swift in Sources */,
 				2D017712272187E200E7886C /* SportPoint.swift in Sources */,
+				2D2B7191272449E80024564D /* GeoZoneTarget.swift in Sources */,
 				2DF85F7A2721EF1500C17C72 /* WorkSpaceSettingsPresenter.swift in Sources */,
 				2DA9DBF0271E303200764BEA /* RPCEngineContract.swift in Sources */,
 				2DA9DBF5271E3A6700764BEA /* SideController.swift in Sources */,
 				2DAA59C2271F00B300ECC994 /* WorkZonePresenter.swift in Sources */,
 				2D86657327221ED600BC451E /* Appereance+UIButton.swift in Sources */,
+				2D2B719627249B1A0024564D /* SportPointsTarget.swift in Sources */,
 				2D017710272187AE00E7886C /* SearchForPointDataSource.swift in Sources */,
 				2D01770E272183AA00E7886C /* Fonts.swift in Sources */,
 				2D0177182721BCFF00E7886C /* Appereance+UITextField.swift in Sources */,
@@ -690,6 +748,7 @@
 				2D0177162721BBE300E7886C /* SearchSportHeader.swift in Sources */,
 				2DF85F6B2721CA4300C17C72 /* GeoSportPointInteractor.swift in Sources */,
 				2DAA59BE271EFA4800ECC994 /* Appereance+UILabel.swift in Sources */,
+				2D2B718F272449210024564D /* BaseTarget.swift in Sources */,
 				2DF85F7D2721F33800C17C72 /* RadioButtonView.swift in Sources */,
 				2DAA59C0271EFC9000ECC994 /* WorkZonesDataSource.swift in Sources */,
 				2DF85F6D2721CB1600C17C72 /* SportPointEntity.swift in Sources */,
@@ -702,6 +761,7 @@
 				2DAA59D7271F9DDB00ECC994 /* PointInfoViewController.swift in Sources */,
 				BC32481A271B489300B6EC1B /* DragImageCell.swift in Sources */,
 				2DAA59CB271F068000ECC994 /* WorkGeoZonesDataStore.swift in Sources */,
+				2D2B7194272456410024564D /* Ext+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

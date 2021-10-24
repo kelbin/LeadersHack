@@ -8,11 +8,17 @@
 import Foundation
 import UIKit
 
+
+protocol ROCEngineProtocol: AnyObject {
+    func didSelected(model: RPC)
+}
+
 class RPCEngineBase: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     private var model: [RPC] = []
     
     weak var tableView: UITableView?
+    weak var delegate: ROCEngineProtocol?
     
     func reloadModel(_ model: [RPC]) {
         willSetModel()
@@ -39,6 +45,13 @@ class RPCEngineBase: NSObject, UITableViewDelegate, UITableViewDataSource {
         let cellModel = self.model[index]
         
         return cellView(for: cellModel, tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let cellModel = self.model[index]
+        
+        delegate?.didSelected(model: cellModel)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
