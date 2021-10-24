@@ -13,8 +13,34 @@ protocol ROCEngineProtocol: AnyObject {
     func didSelected(model: RPC)
 }
 
-class RPCEngineBase: NSObject, UITableViewDelegate, UITableViewDataSource {
+protocol RPCEngineBaseProtocol {
     
+    /// Таблица на которой будет осуществлена верстка
+    ///
+    /// Необязательный параметр
+    /// Нужен для дополнительной и единобразной настройки таблицы
+    
+    var tableView: UITableView? { get set }
+    
+    /// Делегат таблицы и ячеек
+    ///
+    /// Необязательный параметр
+    
+    var delegate: ROCEngineProtocol? { get set }
+    
+    ///  Обновление интерфейса
+    ///
+    ///  Основной метод переотрисовки интерфейса
+    
+    func reloadModel(_ model: [RPC])
+    
+}
+
+class RPCEngineBase: NSObject, UITableViewDelegate, UITableViewDataSource, RPCEngineBaseProtocol {
+    
+    /// Отображаемые ячейки
+    ///
+    /// warning: - Только базовый класс должен управлять этой пропертей
     private var model: [RPC] = []
     
     weak var tableView: UITableView?
@@ -25,6 +51,8 @@ class RPCEngineBase: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.model = model
         didSetModel()
     }
+    
+    // MARK: - UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.count
@@ -60,6 +88,8 @@ class RPCEngineBase: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         return height(for: cellModel)
     }
+    
+    // MARK: - Events
     
     func willSetModel() {
         tableView?.separatorStyle = .none

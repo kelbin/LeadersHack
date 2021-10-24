@@ -12,7 +12,7 @@ struct GetSportPointsModel: Codable {
     let sport_points: [SportPointEntity]
 }
 
-final class SportPointsSerice: BasicService<SportPointsTarget> {
+final class SportPointsSericeImp: BasicService<SportPointsTarget> {
     
     func fetchSposrtPoints(with box: BoxCoordintate) -> AnyPublisher<GetSportPointsModel, Error> {
         let token: SportPointsTarget = .getPoints(box: box)
